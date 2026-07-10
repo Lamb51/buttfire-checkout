@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Flame with speed lines mark</title>
+  <desc id="desc">A compact flame with three speed lines trailing beside it, for the Fast Lane Cap.</desc>
+
+  <!-- speed lines -->
+  <g stroke="#F2E8D8" stroke-width="6" stroke-linecap="round">
+    <line x1="30" y1="80" x2="66" y2="80"/>
+    <line x1="26" y1="100" x2="70" y2="100"/>
+    <line x1="34" y1="120" x2="62" y2="120"/>
+  </g>
+
+  <!-- flame -->
+  <path d="M120 60 C 116 78, 96 88, 96 110 C 96 130, 110 144, 128 144 C 148 144, 162 128, 162 108 C 162 94, 154 84, 146 76 C 148 88, 140 96, 134 100 C 138 88, 130 72, 120 60Z" fill="#D6401C"/>
+  <path d="M124 96 C 122 106, 112 110, 112 122 C 112 132, 120 140, 130 140 C 142 140, 150 130, 150 120 C 150 114, 146 108, 142 104 C 143 110, 138 114, 134 116 C 136 108, 132 100, 124 96Z" fill="#F2A93C"/>
+</svg>

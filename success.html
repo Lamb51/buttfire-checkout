@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order confirmed — Buttfire Coffee</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://bfcafes.com/success.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#17130F; --cream:#F2E8D8; --paper:#FAF4E9;
+    --ember:#D6401C; --flame-gold:#F2A93C; --ash:#4A4038;
+  }
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--charcoal); color:var(--cream);
+    font-family:'Sora',sans-serif; text-align:center; padding:32px;
+  }
+  .card{max-width:460px;}
+  .flame{width:56px; height:56px; margin:0 auto 24px;}
+  h1{
+    font-family:'Anton',sans-serif; text-transform:uppercase;
+    font-size:2.2rem; margin:0 0 14px; color:var(--flame-gold);
+  }
+  p{color:rgba(242,232,216,0.75); line-height:1.6; margin:0 0 30px;}
+  .order-id{
+    font-family:'JetBrains Mono',monospace; font-size:0.78rem;
+    color:rgba(242,232,216,0.55); margin-bottom:30px;
+  }
+  a.btn{
+    display:inline-block; background:var(--ember); color:var(--cream);
+    padding:14px 28px; border-radius:100px; text-decoration:none;
+    font-family:'JetBrains Mono',monospace; font-size:0.78rem;
+    text-transform:uppercase; letter-spacing:0.08em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
+    </svg>
+    <h1>Order confirmed</h1>
+    <p>Your bag's in the queue. We roast to order, so you'll get a shipping notice within 48 hours.</p>
+    <div class="order-id" id="orderId"></div>
+    <a class="btn" href="/index.html">Back to the shop</a>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    if (sessionId) {
+      document.getElementById('orderId').textContent = 'Confirmation ref: ' + sessionId.slice(-12);
+      localStorage.removeItem('buttfire_cart');
+    }
+  </script>
+</body>
+</html>

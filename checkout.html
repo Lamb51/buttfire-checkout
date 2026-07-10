@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Buttfire Coffee</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://bfcafes.com/checkout.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#17130F;
+    --smoke:#241E18;
+    --cream:#F2E8D8;
+    --paper:#FAF4E9;
+    --ember:#D6401C;
+    --ember-dark:#A82F14;
+    --flame-gold:#F2A93C;
+    --ash:#4A4038;
+    --ash-soft:#78695C;
+    --line:rgba(23,19,15,0.12);
+    --line-dark:rgba(23,19,15,0.18);
+    --shadow:0 20px 50px rgba(0,0,0,0.12);
+    --radius:14px;
+    --error:#B3261E;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Sora',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.7rem;
+    font-weight:600;
+    color:var(--ember);
+  }
+  .display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.95;
+  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    background:var(--charcoal);
+    color:var(--cream);
+    padding:16px 32px;
+  }
+  .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Anton',sans-serif;
+    font-size:1.05rem;
+    text-transform:uppercase;
+  }
+  .logo svg{width:22px;height:22px;}
+  .secure-badge{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:rgba(242,232,216,0.7);
+  }
+  .secure-badge svg{width:14px;height:14px;}
+
+  /* ---------- STEPS ---------- */
+  .steps{
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    padding:14px 32px;
+  }
+  .steps-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    gap:28px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ash-soft);
+  }
+  .steps-inner .active{color:var(--ember); font-weight:700;}
+  .steps-inner span:not(:last-child)::after{content:'→'; margin-left:28px; color:var(--line-dark);}
+
+  /* ---------- LAYOUT ---------- */
+  .checkout-wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:56px 32px 120px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media(max-width:900px){
+    .checkout-wrap{grid-template-columns:1fr; padding:36px 20px 90px;}
+    .order-summary{order:-1;}
+  }
+
+  h1.page-title{
+    font-size:clamp(1.9rem,4vw,2.6rem);
+    margin:0 0 8px;
+  }
+  .page-sub{color:var(--ash); margin:0 0 40px; font-size:0.95rem;}
+
+  fieldset{
+    border:none;
+    padding:0;
+    margin:0 0 40px;
+  }
+  legend{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.1rem;
+    margin-bottom:18px;
+    padding:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .legend-num{
+    background:var(--charcoal);
+    color:var(--cream);
+    width:26px;height:26px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    flex-shrink:0;
+  }
+
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .field-row.thirds{grid-template-columns:1.4fr 1fr 1fr;}
+  @media(max-width:520px){ .field-row, .field-row.thirds{grid-template-columns:1fr;} }
+
+  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:16px;}
+  .field label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--ash-soft);
+  }
+  .field input, .field select{
+    font-family:'Sora',sans-serif;
+    font-size:0.95rem;
+    padding:13px 14px;
+    border-radius:10px;
+    border:1px solid var(--line-dark);
+    background:var(--paper);
+    color:var(--charcoal);
+    width:100%;
+  }
+  .field input:focus-visible, .field select:focus-visible{
+    outline:2px solid var(--flame-gold);
+    outline-offset:1px;
+    border-color:var(--flame-gold);
+  }
+  .field.error input{border-color:var(--error);}
+  .field-error-msg{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    color:var(--error);
+    min-height:1em;
+  }
+  .field-row > .field{margin-bottom:0;}
+
+  .card-field-wrap{position:relative;}
+  .card-icons{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    gap:6px;
+    opacity:0.5;
+  }
+  .card-icons svg{width:26px;height:16px;}
+
+  /* payment method tabs */
+  .pay-methods{
+    display:flex;
+    gap:10px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+  }
+  .pay-method{
+    flex:1;
+    min-width:140px;
+    border:1px solid var(--line-dark);
+    border-radius:10px;
+    padding:14px;
+    text-align:center;
+    cursor:pointer;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ash);
+    background:var(--paper);
+    transition:border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .pay-method.active{
+    border-color:var(--ember);
+    background:var(--charcoal);
+    color:var(--cream);
+  }
+
+  .checkbox-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:18px 0;
+  }
+  .checkbox-row input{margin-top:3px;}
+  .checkbox-row label{font-size:0.85rem; color:var(--ash); line-height:1.5;}
+
+  .pay-btn{
+    width:100%;
+    background:var(--ember);
+    color:var(--cream);
+    border:none;
+    padding:18px;
+    border-radius:100px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:700;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.15s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+  }
+  .pay-btn:hover{background:var(--ember-dark); transform:translateY(-1px);}
+  .pay-btn:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
+  .pay-btn svg{width:16px;height:16px;}
+
+  .trust-row{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .trust-row .item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    color:var(--ash-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .trust-row svg{width:14px;height:14px;}
+
+  /* ---------- ORDER SUMMARY ---------- */
+  .order-summary{
+    background:var(--charcoal);
+    color:var(--cream);
+    border-radius:var(--radius);
+    padding:30px;
+    position:sticky;
+    top:24px;
+    box-shadow:var(--shadow);
+  }
+  .order-summary h2{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.2rem;
+    margin:0 0 22px;
+    color:var(--flame-gold);
+  }
+  .line-item{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(242,232,216,0.12);
+    align-items:center;
+  }
+  .line-item .thumb{
+    width:52px;height:52px;
+    border-radius:8px;
+    background:var(--smoke);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .line-item .thumb svg{width:30px;height:30px;}
+  .line-item .info{flex:1;}
+  .line-item .info .name{font-size:0.88rem; font-weight:600;}
+  .line-item .info .meta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    color:rgba(242,232,216,0.55);
+    margin-top:2px;
+  }
+  .line-item .amt{font-family:'JetBrains Mono',monospace; font-size:0.88rem; text-align:right;}
+  .qty-stepper{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+  }
+  .qty-stepper button{
+    width:20px; height:20px;
+    border-radius:5px;
+    border:1px solid rgba(242,232,216,0.25);
+    background:transparent;
+    color:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .qty-stepper button:hover{border-color:var(--flame-gold); color:var(--flame-gold);}
+  .qty-stepper .qty-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    min-width:16px;
+    text-align:center;
+  }
+  .remove-item{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:rgba(242,232,216,0.4);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    margin-top:8px;
+  }
+  .remove-item:hover{color:var(--ember);}
+
+  .promo-row{
+    display:flex;
+    gap:8px;
+    margin:20px 0;
+  }
+  .promo-row input{
+    flex:1;
+    padding:11px 12px;
+    border-radius:8px;
+    border:1px solid rgba(242,232,216,0.2);
+    background:transparent;
+    color:var(--cream);
+    font-family:'Sora',sans-serif;
+    font-size:0.85rem;
+  }
+  .promo-row input::placeholder{color:rgba(242,232,216,0.4);}
+  .promo-row button{
+    background:transparent;
+    border:1px solid rgba(242,232,216,0.3);
+    color:var(--cream);
+    padding:0 16px;
+    border-radius:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+  .promo-row button:hover{border-color:var(--flame-gold); color:var(--flame-gold);}
+
+  .totals{margin-top:18px;}
+  .totals-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    font-size:0.88rem;
+    color:rgba(242,232,216,0.75);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .totals-row.grand{
+    color:var(--cream);
+    font-size:1.15rem;
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    border-top:1px solid rgba(242,232,216,0.15);
+    margin-top:8px;
+    padding-top:16px;
+  }
+
+  .integration-note{
+    margin-top:56px;
+    background:var(--cream);
+    border:1px dashed var(--line-dark);
+    border-radius:var(--radius);
+    padding:24px 28px;
+  }
+  .integration-note h3{
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.06em;
+    color:var(--ember);
+    margin:0 0 10px;
+  }
+  .integration-note p{color:var(--ash); font-size:0.88rem; line-height:1.65; margin:0 0 8px;}
+  .integration-note code{
+    background:var(--paper);
+    border:1px solid var(--line-dark);
+    padding:2px 7px;
+    border-radius:5px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
+      </svg>
+      Buttfire
+    </a>
+    <div class="secure-badge">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+      Secure checkout
+    </div>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="steps-inner">
+    <span>Bag</span>
+    <span class="active">Checkout</span>
+    <span>Confirmation</span>
+  </div>
+</div>
+
+<div class="checkout-wrap">
+
+  <div class="checkout-main">
+    <h1 class="page-title display" style="font-size:2.4rem;">Complete your order</h1>
+    <p class="page-sub">Light roast, whole bean, shipped within 48 hours of roasting.</p>
+
+    <form id="checkoutForm" novalidate>
+
+      <fieldset>
+        <legend><span class="legend-num">1</span> Contact</legend>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          <div class="field-error-msg"></div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="updates" checked>
+          <label for="updates">Send me roast drops and restock alerts (unsubscribe anytime)</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="legend-num">2</span> Shipping</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <div class="field-error-msg"></div>
+          </div>
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <div class="field-error-msg"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="Street address" required>
+          <div class="field-error-msg"></div>
+        </div>
+        <div class="field-row thirds">
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+            <div class="field-error-msg"></div>
+          </div>
+          <div class="field">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" placeholder="WA" required>
+            <div class="field-error-msg"></div>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP</label>
+            <input type="text" id="zip" name="zip" inputmode="numeric" required>
+            <div class="field-error-msg"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="legend-num">3</span> Payment</legend>
+
+        <div class="pay-methods" role="tablist" aria-label="Payment method">
+          <div class="pay-method active" data-method="card" role="tab" aria-selected="true" tabindex="0">Card</div>
+          <div class="pay-method" data-method="paypal" role="tab" aria-selected="false" tabindex="0">PayPal</div>
+          <div class="pay-method" data-method="applepay" role="tab" aria-selected="false" tabindex="0">Apple Pay</div>
+        </div>
+
+        <div id="cardFields">
+          <div class="field">
+            <label for="cardNumber">Card number</label>
+            <div class="card-field-wrap">
+              <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" placeholder="1234 1234 1234 1234" maxlength="19">
+              <div class="card-icons">
+                <svg viewBox="0 0 32 20"><rect width="32" height="20" rx="3" fill="#78695C" opacity="0.3"/></svg>
+              </div>
+            </div>
+            <div class="field-error-msg"></div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="expiry">Expiry</label>
+              <input type="text" id="expiry" name="expiry" placeholder="MM / YY" maxlength="7">
+              <div class="field-error-msg"></div>
+            </div>
+            <div class="field">
+              <label for="cvc">CVC</label>
+              <input type="text" id="cvc" name="cvc" inputmode="numeric" placeholder="123" maxlength="4">
+              <div class="field-error-msg"></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nameOnCard">Name on card</label>
+            <input type="text" id="nameOnCard" name="nameOnCard">
+            <div class="field-error-msg"></div>
+          </div>
+        </div>
+
+        <div id="altPayNote" style="display:none; padding:18px; background:var(--cream); border-radius:10px; font-size:0.85rem; color:var(--ash);"></div>
+      </fieldset>
+
+      <button type="submit" class="pay-btn" id="payBtn">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        Pay $164.00
+      </button>
+
+      <div class="trust-row">
+        <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg> Encrypted checkout</span>
+        <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6"/></svg> No card data stored on this page</span>
+      </div>
+    </form>
+
+    <div class="integration-note">
+      <h3>For the person wiring this up</h3>
+      <p>This page is the front-end only — it doesn't move money yet. The recommended way to activate it is <strong>Stripe Checkout</strong>: create a Payment Link or Checkout Session server-side, then point the "Pay" button at it. Stripe hosts the actual card entry, so you never touch or store raw card numbers here, which keeps you out of PCI-DSS scope.</p>
+      <p>Where the wiring goes: replace the <code>checkoutForm</code> submit handler in the script below with a call to your backend endpoint (e.g. <code>/create-checkout-session</code>), which creates the Stripe session and redirects to <code>session.url</code>. PayPal and Apple Pay tabs are placeholders for their respective SDKs.</p>
+      <p>Say the word and I can write that backend endpoint (Node/Express or a serverless function) and the exact Stripe.js snippet to drop in here.</p>
+    </div>
+  </div>
+
+  <aside class="order-summary">
+    <h2>Your bag</h2>
+
+    <div id="lineItems"><!-- populated by cart.js / checkout script --></div>
+
+    <div id="emptyCart" style="display:none; padding:20px 0; text-align:center;">
+      <p style="color:rgba(242,232,216,0.65); font-size:0.9rem; margin:0 0 16px;">Your bag is empty.</p>
+      <a href="index.html" style="display:inline-block; background:var(--ember); color:var(--cream); padding:11px 22px; border-radius:100px; font-family:'JetBrains Mono',monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Back to the shop</a>
+    </div>
+
+    <div class="promo-row">
+      <input type="text" placeholder="Promo code">
+      <button type="button" id="applyPromo">Apply</button>
+    </div>
+
+    <div class="totals">
+      <div class="totals-row"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
+      <div class="totals-row"><span>Shipping</span><span id="sumShipping">$0.00</span></div>
+      <div class="totals-row"><span>Tax</span><span id="sumTax">$0.00</span></div>
+      <div class="totals-row grand"><span>Total</span><span id="grandTotal">$0.00</span></div>
+    </div>
+  </aside>
+
+</div>
+
+<script src="cart.js"></script>
+<script>
+  // payment method tabs
+  const methods = document.querySelectorAll('.pay-method');
+  const cardFields = document.getElementById('cardFields');
+  const altNote = document.getElementById('altPayNote');
+  const payBtn = document.getElementById('payBtn');
+
+  const altCopy = {
+    paypal: "You'll be redirected to PayPal to complete this payment securely.",
+    applepay: "Use the Apple Pay sheet on your device to confirm this payment."
+  };
+
+  methods.forEach(m => {
+    m.addEventListener('click', () => selectMethod(m));
+    m.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') selectMethod(m); });
+  });
+
+  function selectMethod(m){
+    methods.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+    m.classList.add('active');
+    m.setAttribute('aria-selected','true');
+    const method = m.dataset.method;
+    if(method === 'card'){
+      cardFields.style.display = '';
+      altNote.style.display = 'none';
+    } else {
+      cardFields.style.display = 'none';
+      altNote.style.display = 'block';
+      altNote.textContent = altCopy[method];
+    }
+    updatePayButtonLabel();
+  }
+  function cardIcon(){
+    return '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg>';
+  }
+  function activeMethod(){
+    const active = document.querySelector('.pay-method.active');
+    return active ? active.dataset.method : 'card';
+  }
+  function updatePayButtonLabel(){
+    const method = activeMethod();
+    const total = formatUSD(computeTotals().totalCents);
+    if(method === 'card') payBtn.innerHTML = cardIcon() + ' Pay ' + total;
+    else if(method === 'paypal') payBtn.innerHTML = cardIcon() + ' Continue to PayPal';
+    else payBtn.innerHTML = cardIcon() + ' Pay with Apple Pay';
+    payBtn.disabled = cartCount() === 0;
+  }
+
+  // ---------- Cart rendering ----------
+  const lineItemsEl = document.getElementById('lineItems');
+  const emptyCartEl = document.getElementById('emptyCart');
+
+  const thumbSvgs = {
+    'quick-start-12oz': '<rect x="30" y="18" width="40" height="58" rx="6" fill="#D6401C" opacity="0.85"/>',
+    'full-sprint-2lb': '<rect x="30" y="18" width="40" height="58" rx="6" fill="#D6401C" opacity="0.85"/>',
+    'long-haul-5lb': '<rect x="30" y="18" width="40" height="58" rx="6" fill="#D6401C" opacity="0.85"/>',
+    'ignition-mug': '<path d="M35 30 L35 78 Q35 82 39 82 L61 82 Q65 82 65 78 L65 30" fill="#F2A93C" opacity="0.85"/>',
+    'lit-fuse-tee': '<path d="M32 24 L44 20 Q50 26 56 20 L68 24 L72 36 L64 40 L64 80 L36 80 L36 40 L28 36Z" fill="#F2E8D8" opacity="0.85"/>',
+    'fast-lane-cap': '<path d="M22 46 Q50 24 78 46 L74 58 L26 58 Z" fill="#F2E8D8" opacity="0.85"/>',
+    'grab-go-tote': '<path d="M28 34 L72 34 L68 84 L32 84 Z" fill="#F2E8D8" opacity="0.85"/>',
+    'spark-pack': '<circle cx="35" cy="40" r="14" fill="#F2E8D8" opacity="0.85"/>',
+    'pourover-guide': '<rect x="30" y="18" width="40" height="56" rx="4" fill="#F2E8D8" opacity="0.85"/>'
+  };
+
+  function computeTotals(){
+    const subtotalCents = cartSubtotalCents();
+    const shippingCents = subtotalCents === 0 ? 0 : (subtotalCents >= 7500 ? 0 : 800);
+    const taxCents = Math.round(subtotalCents * 0.07);
+    const totalCents = subtotalCents + shippingCents + taxCents;
+    return { subtotalCents, shippingCents, taxCents, totalCents };
+  }
+
+  function renderCart(){
+    const items = cartDetailed();
+
+    if(items.length === 0){
+      lineItemsEl.style.display = 'none';
+      emptyCartEl.style.display = 'block';
+    } else {
+      lineItemsEl.style.display = '';
+      emptyCartEl.style.display = 'none';
+      lineItemsEl.innerHTML = items.map(item => `
+        <div class="line-item">
+          <div class="thumb"><svg viewBox="0 0 100 100">${thumbSvgs[item.id] || ''}</svg></div>
+          <div class="info">
+            <div class="name">${item.name}</div>
+            <div class="qty-stepper">
+              <button type="button" data-action="dec" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+              <span class="qty-num">${item.quantity}</span>
+              <button type="button" data-action="inc" data-id="${item.id}" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="remove-item" data-action="remove" data-id="${item.id}">Remove</button>
+          </div>
+          <div class="amt">${formatUSD(item.price * item.quantity)}</div>
+        </div>
+      `).join('');
+
+      lineItemsEl.querySelectorAll('button[data-action]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const action = btn.dataset.action;
+          const current = cartDetailed().find(i => i.id === id);
+          if(action === 'inc') setQuantity(id, (current ? current.quantity : 0) + 1);
+          if(action === 'dec') setQuantity(id, (current ? current.quantity : 0) - 1);
+          if(action === 'remove') removeFromCart(id);
+          renderCart();
+        });
+      });
+    }
+
+    const totals = computeTotals();
+    document.getElementById('sumSubtotal').textContent = formatUSD(totals.subtotalCents);
+    document.getElementById('sumShipping').textContent = totals.subtotalCents === 0 ? '—' : (totals.shippingCents === 0 ? 'Free' : formatUSD(totals.shippingCents));
+    document.getElementById('sumTax').textContent = formatUSD(totals.taxCents);
+    document.getElementById('grandTotal').textContent = formatUSD(totals.totalCents);
+    updatePayButtonLabel();
+  }
+
+  renderCart();
+
+  const form = document.getElementById('checkoutForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if(cartCount() === 0) return;
+
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(input => {
+      const fieldWrap = input.closest('.field');
+      const msg = fieldWrap ? fieldWrap.querySelector('.field-error-msg') : null;
+      if(!input.value.trim()){
+        valid = false;
+        if(fieldWrap) fieldWrap.classList.add('error');
+        if(msg) msg.textContent = 'Required';
+      } else {
+        if(fieldWrap) fieldWrap.classList.remove('error');
+        if(msg) msg.textContent = '';
+      }
+    });
+
+    if(!valid) return;
+
+    payBtn.disabled = true;
+    payBtn.textContent = 'Redirecting to secure payment…';
+
+    const items = cartDetailed().map(i => ({ name: i.name, quantity: i.quantity }));
+
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items, email: form.email.value })
+      });
+
+      if (!res.ok) throw new Error('Checkout session failed');
+      const { url } = await res.json();
+      window.location.href = url; // Stripe-hosted payment page
+    } catch (err) {
+      console.error(err);
+      payBtn.disabled = false;
+      payBtn.textContent = 'Something went wrong — try again';
+    }
+  });
+
+  document.getElementById('applyPromo').addEventListener('click', () => {
+    alert('Promo codes will apply automatically once connected to your checkout backend.');
+  });
+</script>
+
+</body>
+</html>

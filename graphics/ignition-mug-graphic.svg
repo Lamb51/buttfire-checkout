@@ -1,0 +1,22 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buttfire sprinting stick figure mark</title>
+  <desc id="desc">A stick figure mid-sprint with a small flame trailing behind, for the Ignition Mug.</desc>
+
+  <!-- flame trailing behind the runner -->
+  <path d="M48 128 C 46 118, 56 116, 52 106 C 62 111, 60 124, 51 131 C 47 130, 48 128, 48 128Z" fill="#D6401C"/>
+  <path d="M52 124 C 51 119, 56 118, 54 113 C 59 116, 58 122, 53 126 C 51 125, 52 124, 52 124Z" fill="#F2A93C"/>
+
+  <!-- stick figure, mid-stride -->
+  <g fill="none" stroke="#F2E8D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="112" cy="46" r="13" stroke="#F2E8D8"/>
+    <line x1="112" y1="59" x2="103" y2="112"/>
+    <!-- front arm, pumping forward -->
+    <path d="M108 74 L 128 86 L 140 70"/>
+    <!-- back arm, pumping back -->
+    <path d="M108 74 L 88 92 L 74 108"/>
+    <!-- front leg, striding forward -->
+    <path d="M103 112 L 122 130 L 140 128"/>
+    <!-- back leg, extended back toward the flame -->
+    <path d="M103 112 L 78 122 L 58 120"/>
+  </g>
+</svg>

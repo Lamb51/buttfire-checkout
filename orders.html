@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Orders — Buttfire Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#17130F;
+    --smoke:#241E18;
+    --cream:#F2E8D8;
+    --paper:#FAF4E9;
+    --ember:#D6401C;
+    --ember-dark:#A82F14;
+    --flame-gold:#F2A93C;
+    --ash:#4A4038;
+    --ash-soft:#78695C;
+    --line:rgba(23,19,15,0.12);
+    --line-dark:rgba(23,19,15,0.18);
+    --error:#B3261E;
+    --radius:12px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Sora',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.7rem;
+    color:var(--ember);
+    font-weight:600;
+  }
+  .display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    background:var(--charcoal);
+    color:var(--cream);
+    padding:16px 32px;
+  }
+  .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Anton',sans-serif;
+    font-size:1.05rem;
+    text-transform:uppercase;
+  }
+  .logo svg{width:22px;height:22px;}
+  .lock-btn{
+    background:none;
+    border:1px solid rgba(242,232,216,0.25);
+    color:var(--cream);
+    padding:7px 14px;
+    border-radius:100px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    cursor:pointer;
+  }
+  .lock-btn:hover{border-color:var(--flame-gold); color:var(--flame-gold);}
+
+  /* ---------- GATE ---------- */
+  .gate{
+    max-width:420px;
+    margin:120px auto;
+    padding:0 24px;
+    text-align:center;
+  }
+  .gate h1{font-size:1.8rem; margin:16px 0 8px;}
+  .gate p{color:var(--ash); font-size:0.92rem; margin:0 0 28px;}
+  .gate input{
+    width:100%;
+    padding:14px 16px;
+    border-radius:10px;
+    border:1px solid var(--line-dark);
+    background:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.9rem;
+    margin-bottom:14px;
+  }
+  .gate input:focus-visible{outline:2px solid var(--flame-gold); outline-offset:1px;}
+  .gate button{
+    width:100%;
+    background:var(--ember);
+    color:var(--cream);
+    border:none;
+    padding:14px;
+    border-radius:100px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .gate button:hover{background:var(--ember-dark);}
+  .gate-error{
+    color:var(--error);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.8rem;
+    margin-top:14px;
+    min-height:1.2em;
+  }
+
+  /* ---------- DASHBOARD ---------- */
+  .dash{
+    max-width:1180px;
+    margin:0 auto;
+    padding:44px 32px 100px;
+    display:none;
+  }
+  .dash.visible{display:block;}
+  .dash-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+  }
+  .dash-head h1{font-size:2rem; margin:10px 0 0;}
+  .stats-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .stat-card{
+    background:var(--charcoal);
+    color:var(--cream);
+    border-radius:var(--radius);
+    padding:16px 22px;
+    min-width:140px;
+  }
+  .stat-card .num{font-family:'Anton',sans-serif; font-size:1.6rem; color:var(--flame-gold);}
+  .stat-card .lbl{font-family:'JetBrains Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.07em; color:rgba(242,232,216,0.6); margin-top:2px;}
+
+  .toolbar{
+    display:flex;
+    gap:12px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+  }
+  .toolbar input{
+    flex:1;
+    min-width:220px;
+    padding:12px 16px;
+    border-radius:100px;
+    border:1px solid var(--line-dark);
+    background:var(--cream);
+    font-family:'Sora',sans-serif;
+    font-size:0.9rem;
+  }
+  .toolbar input:focus-visible{outline:2px solid var(--flame-gold); outline-offset:1px;}
+  .toolbar button{
+    background:var(--charcoal);
+    color:var(--cream);
+    border:none;
+    padding:0 22px;
+    border-radius:100px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    cursor:pointer;
+  }
+  .toolbar button:hover{background:var(--ember);}
+
+  .table-wrap{
+    background:var(--cream);
+    border-radius:var(--radius);
+    border:1px solid var(--line-dark);
+    overflow:hidden;
+  }
+  table{width:100%; border-collapse:collapse;}
+  thead th{
+    text-align:left;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--ash-soft);
+    padding:14px 18px;
+    border-bottom:1px solid var(--line-dark);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:16px 18px;
+    border-bottom:1px solid var(--line);
+    font-size:0.86rem;
+    vertical-align:top;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:rgba(214,64,28,0.04);}
+  .cell-ref{font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--ash-soft);}
+  .cell-email{font-weight:600;}
+  .cell-items{max-width:320px;}
+  .item-line{font-size:0.82rem; color:var(--ash); margin-bottom:2px;}
+  .cell-amt{font-family:'JetBrains Mono',monospace; font-weight:700; white-space:nowrap;}
+  .cell-date{font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ash-soft); white-space:nowrap;}
+
+  .empty-state, .loading-state, .error-state{
+    padding:60px 24px;
+    text-align:center;
+    color:var(--ash);
+    font-size:0.92rem;
+  }
+  .error-state{color:var(--error);}
+
+  .refresh-note{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    color:var(--ash-soft);
+    margin-top:14px;
+    text-align:right;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
+      </svg>
+      Buttfire — Orders
+    </a>
+    <button class="lock-btn" id="lockBtn" style="display:none;">Lock</button>
+  </div>
+</div>
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <span class="eyebrow">Restricted</span>
+  <h1 class="display">Order lookup</h1>
+  <p>Enter your admin key to view orders. This isn't a public page — don't share the link with the key attached.</p>
+  <input type="password" id="keyInput" placeholder="Admin key" autocomplete="off">
+  <button id="unlockBtn">Unlock</button>
+  <div class="gate-error" id="gateError"></div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash" id="dash">
+  <div class="dash-head">
+    <div>
+      <span class="eyebrow">Order lookup</span>
+      <h1 class="display">Orders</h1>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num" id="statCount">—</div>
+        <div class="lbl">Orders shown</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="statTotal">—</div>
+        <div class="lbl">Total value shown</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="Search by customer email…">
+    <button id="searchBtn">Search</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+
+  <div class="table-wrap">
+    <div id="tableContent">
+      <div class="loading-state">Loading orders…</div>
+    </div>
+  </div>
+  <div class="refresh-note" id="refreshNote"></div>
+</div>
+
+<script>
+  const KEY_STORAGE = 'buttfire_admin_key';
+  const gate = document.getElementById('gate');
+  const dash = document.getElementById('dash');
+  const keyInput = document.getElementById('keyInput');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const gateError = document.getElementById('gateError');
+  const lockBtn = document.getElementById('lockBtn');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const tableContent = document.getElementById('tableContent');
+  const statCount = document.getElementById('statCount');
+  const statTotal = document.getElementById('statTotal');
+  const refreshNote = document.getElementById('refreshNote');
+
+  function formatUSD(cents){ return '$' + (cents / 100).toFixed(2); }
+  function formatDate(iso){
+    const d = new Date(iso);
+    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) +
+      ' · ' + d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function showDash(){
+    gate.style.display = 'none';
+    dash.classList.add('visible');
+    lockBtn.style.display = '';
+  }
+  function showGate(){
+    dash.classList.remove('visible');
+    gate.style.display = 'block';
+    lockBtn.style.display = 'none';
+  }
+
+  async function fetchOrders(search){
+    const key = sessionStorage.getItem(KEY_STORAGE);
+    const url = new URL('/api/orders', window.location.origin);
+    url.searchParams.set('key', key);
+    if (search) url.searchParams.set('search', search);
+
+    const res = await fetch(url.toString());
+    if (res.status === 401) {
+      sessionStorage.removeItem(KEY_STORAGE);
+      showGate();
+      gateError.textContent = 'That key was rejected. Try again.';
+      throw new Error('Unauthorized');
+    }
+    if (!res.ok) throw new Error('Failed to load orders');
+    return res.json();
+  }
+
+  function renderOrders(orders){
+    if (!orders.length) {
+      tableContent.innerHTML = '<div class="empty-state">No orders match that search.</div>';
+      statCount.textContent = '0';
+      statTotal.textContent = formatUSD(0);
+      return;
+    }
+
+    const totalCents = orders.reduce((sum, o) => sum + o.amount_total, 0);
+    statCount.textContent = orders.length;
+    statTotal.textContent = formatUSD(totalCents);
+
+    const rows = orders.map(o => {
+      const items = (o.items || []).map(i =>
+        `<div class="item-line">${i.quantity} × ${i.description}</div>`
+      ).join('');
+      const shipTo = o.shipping_address
+        ? [o.shipping_address.city, o.shipping_address.state].filter(Boolean).join(', ')
+        : '—';
+
+      return `
+        <tr>
+          <td class="cell-date">${formatDate(o.created_at)}</td>
+          <td class="cell-email">${o.customer_email || '—'}<div class="cell-ref">${o.session_id.slice(-12)}</div></td>
+          <td class="cell-items">${items}</td>
+          <td>${shipTo}</td>
+          <td class="cell-amt">${formatUSD(o.amount_total)}</td>
+        </tr>
+      `;
+    }).join('');
+
+    tableContent.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Ships to</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+
+  async function loadAndRender(search){
+    tableContent.innerHTML = '<div class="loading-state">Loading orders…</div>';
+    try {
+      const data = await fetchOrders(search);
+      renderOrders(data.orders || []);
+      refreshNote.textContent = 'Last updated ' + new Date().toLocaleTimeString();
+    } catch (err) {
+      if (err.message !== 'Unauthorized') {
+        tableContent.innerHTML = '<div class="error-state">Could not load orders. Try refreshing.</div>';
+      }
+    }
+  }
+
+  unlockBtn.addEventListener('click', async () => {
+    const key = keyInput.value.trim();
+    if (!key) return;
+    sessionStorage.setItem(KEY_STORAGE, key);
+    gateError.textContent = '';
+    showDash();
+    loadAndRender();
+  });
+  keyInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') unlockBtn.click(); });
+
+  lockBtn.addEventListener('click', () => {
+    sessionStorage.removeItem(KEY_STORAGE);
+    keyInput.value = '';
+    showGate();
+  });
+
+  searchBtn.addEventListener('click', () => loadAndRender(searchInput.value.trim()));
+  searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') searchBtn.click(); });
+  clearBtn.addEventListener('click', () => { searchInput.value = ''; loadAndRender(); });
+
+  // if a key is already stored for this browser session, skip the gate
+  if (sessionStorage.getItem(KEY_STORAGE)) {
+    showDash();
+    loadAndRender();
+  }
+</script>
+
+</body>
+</html>

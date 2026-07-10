@@ -1,0 +1,14 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buttfire stacked wordmark</title>
+  <desc id="desc">A stacked BUTTFIRE wordmark with a small flame accent above it, for the Grab and Go Tote.</desc>
+  <style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+    .word{ font-family:'Anton', sans-serif; text-transform:uppercase; }
+  ]]></style>
+
+  <path d="M100 46 C 97 56, 86 61, 86 73 C 86 84, 94 92, 104 92 C 116 92, 125 82, 125 70 C 125 62, 120 55, 114 49 C 116 58, 110 64, 105 67 C 108 58, 106 52, 100 46Z" fill="#D6401C"/>
+  <path d="M102 66 C 100 71, 95 73, 95 79 C 95 84, 99 88, 104 88 C 110 88, 114 83, 114 78 C 114 74, 112 71, 109 68 C 110 72, 107 75, 105 77 C 106 73, 105 69, 102 66Z" fill="#F2A93C"/>
+
+  <text x="100" y="130" text-anchor="middle" class="word" font-size="30" fill="#F2E8D8">Butt</text>
+  <text x="100" y="162" text-anchor="middle" class="word" font-size="30" fill="#F2E8D8">Fire</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pour-over dripper with a flame drop</title>
+  <desc id="desc">A pour-over coffee dripper cone with a flame-shaped drop falling from it, for the Pour-Over Pocket Guide.</desc>
+
+  <!-- dripper cone -->
+  <path d="M62 60 L138 60 L108 118 L92 118 Z" fill="none" stroke="#F2E8D8" stroke-width="6" stroke-linejoin="round"/>
+  <line x1="76" y1="60" x2="76" y2="46" stroke="#F2E8D8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="124" y1="60" x2="124" y2="46" stroke="#F2E8D8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="76" y1="46" x2="124" y2="46" stroke="#F2E8D8" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- flame-shaped drop falling from the dripper -->
+  <path d="M100 128 C 97 138, 87 143, 87 153 C 87 161, 93 168, 101 168 C 111 168, 118 160, 118 150 C 118 143, 114 137, 109 132 C 110 139, 105 144, 101 147 C 103 140, 102 133, 100 128Z" fill="#D6401C"/>
+  <path d="M101 143 C 99 148, 94 150, 94 155 C 94 159, 97 162, 101 162 C 106 162, 110 158, 110 153 C 110 150, 108 147, 105 144 C 106 148, 103 150, 101 152 C 102 149, 102 145, 101 143Z" fill="#F2A93C"/>
+</svg>

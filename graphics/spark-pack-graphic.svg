@@ -1,0 +1,43 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Sticker sheet</title>
+  <desc id="desc">A loose sheet of four small stickers: a flame mark, a running stick figure, a coffee cup, and a speed streak, for the Spark Pack.</desc>
+
+  <!-- flame sticker -->
+  <g transform="translate(34,34) rotate(-8)">
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#F2E8D8" stroke-width="2" opacity="0.35"/>
+    <path d="M0 -14 C -3 -6, -11 -2, -11 6 C -11 14, -4 20, 3 20 C 12 20, 19 13, 19 4 C 19 -1, 16 -6, 12 -10 C 13 -5, 9 -1, 5 1 C 7 -5, 5 -10, 0 -14Z" fill="#D6401C"/>
+  </g>
+
+  <!-- running stick figure sticker -->
+  <g transform="translate(140,40) rotate(6)">
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#F2E8D8" stroke-width="2" opacity="0.35"/>
+    <g fill="none" stroke="#F2E8D8" stroke-width="3.6" stroke-linecap="round">
+      <circle cx="4" cy="-14" r="5"/>
+      <line x1="4" y1="-9" x2="0" y2="8"/>
+      <path d="M2 -3 L 12 3 L 17 -4"/>
+      <path d="M2 -3 L -8 4 L -14 10"/>
+      <path d="M0 8 L 10 15 L 16 14"/>
+      <path d="M0 8 L -9 13 L -15 12"/>
+    </g>
+    <path d="M-16 14 C -17 10, -13 9, -14 5 C -10 8, -11 13, -15 16Z" fill="#F2A93C"/>
+  </g>
+
+  <!-- coffee cup sticker -->
+  <g transform="translate(46,150) rotate(-4)">
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#F2E8D8" stroke-width="2" opacity="0.35"/>
+    <path d="M-13 -8 L -13 12 Q -13 17 -8 17 L 8 17 Q 13 17 13 12 L 13 -8Z" fill="#F2E8D8"/>
+    <path d="M13 -4 L 21 -2 L 19 6 L 13 4Z" fill="#F2E8D8"/>
+    <path d="M-4 -14 C -4 -19, 2 -19, 0 -23 C 4 -20, 3 -14, -1 -12Z" fill="#D6401C"/>
+  </g>
+
+  <!-- speed streak sticker -->
+  <g transform="translate(148,152) rotate(5)">
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#F2E8D8" stroke-width="2" opacity="0.35"/>
+    <g stroke="#F2E8D8" stroke-width="4" stroke-linecap="round">
+      <line x1="-16" y1="-8" x2="6" y2="-8"/>
+      <line x1="-18" y1="0" x2="10" y2="0"/>
+      <line x1="-14" y1="8" x2="4" y2="8"/>
+    </g>
+    <path d="M6 -8 L18 0 L6 8Z" fill="#D6401C"/>
+  </g>
+</svg>
