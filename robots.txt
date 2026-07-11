@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /index.html
+Allow: /
+
+Disallow: /checkout.html
+Disallow: /success.html
+Disallow: /orders.html
+Disallow: /api/
+
+Sitemap: https://bfcafes.com/sitemap.xml
