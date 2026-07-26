@@ -892,7 +892,7 @@
         <div class="card">
           <div class="card-art">
             <span class="card-tag">Best to try</span>
-            <img class="variant-preview bag-preview" data-bag-preview src="images/bags/bag-pattern-male.png" alt="The Quick Start bag pattern preview" />
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="12oz" src="images/bags/bag-12oz-male.png" alt="The Quick Start bag pattern preview" />
           </div>
           <div class="card-body">
             <h3>The Quick Start</h3>
@@ -928,7 +928,7 @@
         <div class="card">
           <div class="card-art">
             <span class="card-tag">Most popular</span>
-            <img class="variant-preview bag-preview" data-bag-preview src="images/bags/bag-pattern-male.png" alt="The Full Sprint bag pattern preview" />
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="2lb" src="images/bags/bag-2lb-male.png" alt="The Full Sprint bag pattern preview" />
           </div>
           <div class="card-body">
             <h3>The Full Sprint</h3>
@@ -964,7 +964,7 @@
         <div class="card">
           <div class="card-art">
             <span class="card-tag">Best value</span>
-            <img class="variant-preview bag-preview" data-bag-preview src="images/bags/bag-pattern-male.png" alt="The Long Haul bag pattern preview" />
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="5lb" src="images/bags/bag-5lb-male.png" alt="The Long Haul bag pattern preview" />
           </div>
           <div class="card-body">
             <h3>The Long Haul</h3>
@@ -1271,7 +1271,7 @@
           </div>
           <div class="card-body">
             <h3>The Pour-Over Pocket Guide</h3>
-            <p class="desc">A printed pocket guide with 8 international recipes — pour-over, Chemex, French press, AeroPress, cold brew, and more — plus storage tips, tasting notes, and a brew log to track what works. Ships with every order.</p>
+            <p class="desc">A printed pocket guide with 8 international recipes — pour-over, Chemex, French press, AeroPress, cold brew, and more — plus storage tips, tasting notes, and a brew log to track what works.</p>
             <div class="card-specs"><span class="spec">9 pages</span><span class="spec">8 recipes</span></div>
             <div class="card-foot">
               <div class="card-foot-top">
@@ -1409,8 +1409,9 @@
         const route = routes[preview.id] || { folder: 'mugs', prefix: 'wrap' };
         preview.src = `images/${route.folder}/${route.prefix}-${title}-${gender}.png`;
       } else if (preview.hasAttribute('data-bag-preview')) {
-        // bag-style: gender only
-        preview.src = `images/bags/bag-pattern-${gender}.png`;
+        // bag-style: weight + gender
+        const weight = preview.dataset.weight;
+        preview.src = `images/bags/bag-${weight}-${gender}.png`;
       }
     }
 
