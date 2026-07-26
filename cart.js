@@ -61,8 +61,22 @@ const CATALOG = {
     titles: TITLES,
     previewPath: (variant) => `images/mugs/wrap-${variant.title}-${variant.gender}.png`
   },
-  'lit-fuse-tee': { name: 'Lit Fuse Tee', price: 3200 },
-  'fast-lane-cap': { name: 'Fast Lane Cap', price: 2600 },
+  'lit-fuse-tee': {
+    name: 'Lit Fuse Tee',
+    price: 3200,
+    hasGender: true,
+    hasTitle: true,
+    titles: TITLES,
+    previewPath: (variant) => `images/tees/tee-${variant.title}-${variant.gender}.png`
+  },
+  'fast-lane-cap': {
+    name: 'Fast Lane Cap',
+    price: 2600,
+    hasGender: true,
+    hasTitle: true,
+    titles: TITLES,
+    previewPath: (variant) => `images/caps/cap-${variant.title}-${variant.gender}.png`
+  },
   'grab-go-tote': {
     name: 'Grab & Go Tote',
     price: 2000,
