@@ -35,9 +35,24 @@ const TITLES = {
 };
 
 const CATALOG = {
-  'quick-start-12oz': { name: 'The Quick Start (12oz)', price: 1800 },
-  'full-sprint-2lb': { name: 'The Full Sprint (2lb)', price: 4600 },
-  'long-haul-5lb': { name: 'The Long Haul (5lb)', price: 9900 },
+  'quick-start-12oz': {
+    name: 'The Quick Start (12oz)',
+    price: 1800,
+    hasGender: true,
+    previewPath: (variant) => `images/bags/bag-pattern-${variant.gender}.png`
+  },
+  'full-sprint-2lb': {
+    name: 'The Full Sprint (2lb)',
+    price: 4600,
+    hasGender: true,
+    previewPath: (variant) => `images/bags/bag-pattern-${variant.gender}.png`
+  },
+  'long-haul-5lb': {
+    name: 'The Long Haul (5lb)',
+    price: 9900,
+    hasGender: true,
+    previewPath: (variant) => `images/bags/bag-pattern-${variant.gender}.png`
+  },
   'ignition-mug': {
     name: 'Ignition Mug',
     price: 2200,
