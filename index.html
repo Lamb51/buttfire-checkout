@@ -1212,46 +1212,39 @@
 
         <div class="card">
           <div class="card-art">
-            <svg viewBox="0 0 100 100" aria-hidden="true">
-              <g transform="scale(0.5)">
-                <g transform="translate(34,34) rotate(-8)">
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="#4A4038" stroke-width="2" opacity="0.35"/>
-                  <path d="M0 -14 C -3 -6, -11 -2, -11 6 C -11 14, -4 20, 3 20 C 12 20, 19 13, 19 4 C 19 -1, 16 -6, 12 -10 C 13 -5, 9 -1, 5 1 C 7 -5, 5 -10, 0 -14Z" fill="#D6401C"/>
-                </g>
-                <g transform="translate(140,40) rotate(6)">
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="#4A4038" stroke-width="2" opacity="0.35"/>
-                  <g fill="none" stroke="#4A4038" stroke-width="3.6" stroke-linecap="round">
-                    <circle cx="4" cy="-14" r="5"/>
-                    <line x1="4" y1="-9" x2="0" y2="8"/>
-                    <path d="M2 -3 L 12 3 L 17 -4"/>
-                    <path d="M2 -3 L -8 4 L -14 10"/>
-                    <path d="M0 8 L 10 15 L 16 14"/>
-                    <path d="M0 8 L -9 13 L -15 12"/>
-                  </g>
-                  <path d="M-16 14 C -17 10, -13 9, -14 5 C -10 8, -11 13, -15 16Z" fill="#F2A93C"/>
-                </g>
-                <g transform="translate(46,150) rotate(-4)">
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="#4A4038" stroke-width="2" opacity="0.35"/>
-                  <path d="M-13 -8 L -13 12 Q -13 17 -8 17 L 8 17 Q 13 17 13 12 L 13 -8Z" fill="#4A4038"/>
-                  <path d="M13 -4 L 21 -2 L 19 6 L 13 4Z" fill="#4A4038"/>
-                  <path d="M-4 -14 C -4 -19, 2 -19, 0 -23 C 4 -20, 3 -14, -1 -12Z" fill="#D6401C"/>
-                </g>
-                <g transform="translate(148,152) rotate(5)">
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="#4A4038" stroke-width="2" opacity="0.35"/>
-                  <g stroke="#4A4038" stroke-width="4" stroke-linecap="round">
-                    <line x1="-16" y1="-8" x2="6" y2="-8"/>
-                    <line x1="-18" y1="0" x2="10" y2="0"/>
-                    <line x1="-14" y1="8" x2="4" y2="8"/>
-                  </g>
-                  <path d="M6 -8 L18 0 L6 8Z" fill="#D6401C"/>
-                </g>
-              </g>
-            </svg>
+            <img id="spark-preview" src="images/sparkpacks/spark-pmp-male.png" alt="Spark Pack preview" class="variant-preview" />
           </div>
           <div class="card-body">
             <h3>Spark Pack</h3>
-            <p class="desc">Five vinyl stickers — flame mark, running-figure badge, coffee cup, and speed streak. Weatherproof.</p>
+            <p class="desc">Five vinyl stickers. Pick your title and colorway — the Buttfire mark comes standard on every one. Weatherproof.</p>
             <div class="card-specs"><span class="spec">5 stickers</span><span class="spec">Vinyl</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="spark-pack">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="spark-pack">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
             <div class="card-foot">
               <div class="card-foot-top">
                 <span class="price">$10</span>
@@ -1261,7 +1254,7 @@
                   <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
                 </div>
               </div>
-              <button class="add-btn" data-id="spark-pack" data-name="Spark Pack">Add to bag</button>
+              <button class="add-btn" data-id="spark-pack" data-name="Spark Pack" data-variant="true">Add to bag</button>
             </div>
           </div>
         </div>
@@ -1416,7 +1409,8 @@
         const routes = {
           'tote-preview': { folder: 'totes', prefix: 'tote' },
           'cap-preview': { folder: 'caps', prefix: 'cap' },
-          'tee-preview': { folder: 'tees', prefix: 'tee' }
+          'tee-preview': { folder: 'tees', prefix: 'tee' },
+          'spark-preview': { folder: 'sparkpacks', prefix: 'spark' }
         };
         const route = routes[preview.id] || { folder: 'mugs', prefix: 'wrap' };
         preview.src = `images/${route.folder}/${route.prefix}-${title}-${gender}.png`;

@@ -85,7 +85,14 @@ const CATALOG = {
     titles: TITLES,
     previewPath: (variant) => `images/totes/tote-${variant.title}-${variant.gender}.png`
   },
-  'spark-pack': { name: 'Spark Pack', price: 1000 },
+  'spark-pack': {
+    name: 'Spark Pack',
+    price: 1000,
+    hasGender: true,
+    hasTitle: true,
+    titles: TITLES,
+    previewPath: (variant) => `images/sparkpacks/spark-${variant.title}-${variant.gender}.png`
+  },
   'pourover-guide': { name: 'Pour-Over Pocket Guide', price: 600 }
 };
 
