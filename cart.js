@@ -63,7 +63,14 @@ const CATALOG = {
   },
   'lit-fuse-tee': { name: 'Lit Fuse Tee', price: 3200 },
   'fast-lane-cap': { name: 'Fast Lane Cap', price: 2600 },
-  'grab-go-tote': { name: 'Grab & Go Tote', price: 2000 },
+  'grab-go-tote': {
+    name: 'Grab & Go Tote',
+    price: 2000,
+    hasGender: true,
+    hasTitle: true,
+    titles: TITLES,
+    previewPath: (variant) => `images/totes/tote-${variant.title}-${variant.gender}.png`
+  },
   'spark-pack': { name: 'Spark Pack', price: 1000 },
   'pourover-guide': { name: 'Pour-Over Pocket Guide', price: 600 }
 };

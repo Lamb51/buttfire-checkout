@@ -1132,22 +1132,39 @@
 
         <div class="card">
           <div class="card-art">
-            <svg viewBox="0 0 100 100" aria-hidden="true">
-              <path d="M28 34 L72 34 L68 84 L32 84 Z" fill="#F2E8D8"/>
-              <rect x="38" y="22" width="24" height="16" rx="8" fill="none" stroke="#4A4038" stroke-width="2"/>
-              <!-- stacked wordmark print on the tote face -->
-              <g transform="translate(18,23) scale(0.32)">
-                <path d="M100 46 C 97 56, 86 61, 86 73 C 86 84, 94 92, 104 92 C 116 92, 125 82, 125 70 C 125 62, 120 55, 114 49 C 116 58, 110 64, 105 67 C 108 58, 106 52, 100 46Z" fill="#D6401C"/>
-                <path d="M102 66 C 100 71, 95 73, 95 79 C 95 84, 99 88, 104 88 C 110 88, 114 83, 114 78 C 114 74, 112 71, 109 68 C 110 72, 107 75, 105 77 C 106 73, 105 69, 102 66Z" fill="#F2A93C"/>
-                <text x="100" y="124" text-anchor="middle" font-family="Anton" font-size="19" fill="#4A4038">BUTTFIRE</text>
-                <text x="100" y="150" text-anchor="middle" font-family="Anton" font-size="19" fill="#4A4038">roast</text>
-              </g>
-            </svg>
+            <img id="tote-preview" src="images/totes/tote-pmp-male.png" alt="Grab & Go Tote preview" class="variant-preview" />
           </div>
           <div class="card-body">
             <h3>Grab &amp; Go Tote</h3>
-            <p class="desc">Heavy canvas tote with the stacked BUTTFIRE wordmark printed on the face — built for beans and whatever else you're rushing out the door with.</p>
+            <p class="desc">Heavy canvas tote. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
             <div class="card-specs"><span class="spec">Canvas</span><span class="spec">16"×14"</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="grab-go-tote">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="grab-go-tote">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
             <div class="card-foot">
               <div class="card-foot-top">
                 <span class="price">$20</span>
@@ -1157,7 +1174,7 @@
                   <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
                 </div>
               </div>
-              <button class="add-btn" data-id="grab-go-tote" data-name="Grab & Go Tote">Add to bag</button>
+              <button class="add-btn" data-id="grab-go-tote" data-name="Grab & Go Tote" data-variant="true">Add to bag</button>
             </div>
           </div>
         </div>
@@ -1363,9 +1380,11 @@
       if (!preview) return;
       const gender = toggle.querySelector('.gender-btn.active').dataset.gender;
       if (titleSelect) {
-        // mug-style: title + gender
+        // title + gender products: mug and tote each have their own image folder
         const title = titleSelect.value;
-        preview.src = `images/mugs/wrap-${title}-${gender}.png`;
+        const folder = preview.id === 'tote-preview' ? 'totes' : 'mugs';
+        const prefix = preview.id === 'tote-preview' ? 'tote' : 'wrap';
+        preview.src = `images/${folder}/${prefix}-${title}-${gender}.png`;
       } else if (preview.hasAttribute('data-bag-preview')) {
         // bag-style: gender only
         preview.src = `images/bags/bag-pattern-${gender}.png`;
