@@ -13,7 +13,7 @@ buttfire-checkout/
 ```
 
 ## 1. Create a Stripe account
-Sign up at https://dashboard.stripe.com/register if you haven't already..
+Sign up at https://dashboard.stripe.com/register if you haven't already.
 Once in, go to **Developers → API keys** and copy your **Secret key**
 (starts with `sk_test_...` while testing, `sk_live_...` when you're ready
 for real payments).
