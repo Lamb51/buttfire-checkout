@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttfire Coffee — Light Roast, Lit Fast</title>
+<meta name="description" content="Buttfire Coffee — single-origin, light roast whole bean coffee, roasted to order and shipped within 48 hours. Plus mugs, tees, and gear for people who move fast.">
+<link rel="canonical" href="https://bfcafes.com/">
+
+<!-- Open Graph / social link previews -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Buttfire Coffee — Light Roast, Lit Fast">
+<meta property="og:description" content="Single-origin, light roast whole bean coffee, roasted to order. Plus mugs, tees, and gear for people who move fast.">
+<meta property="og:url" content="https://bfcafes.com/">
+<meta property="og:site_name" content="Buttfire Coffee">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Buttfire Coffee — Light Roast, Lit Fast">
+<meta name="twitter:description" content="Single-origin, light roast whole bean coffee, roasted to order. Plus mugs, tees, and gear for people who move fast.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#17130F;
+    --smoke:#241E18;
+    --cream:#F2E8D8;
+    --paper:#FAF4E9;
+    --ember:#D6401C;
+    --ember-dark:#A82F14;
+    --flame-gold:#F2A93C;
+    --ash:#4A4038;
+    --ash-soft:#78695C;
+    --line:rgba(242,232,216,0.14);
+    --line-dark:rgba(23,19,15,0.12);
+    --shadow:0 20px 50px rgba(0,0,0,0.35);
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Sora',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    font-weight:600;
+  }
+  .display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
+  }
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(23,19,15,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 32px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--cream);
+    font-family:'Anton',sans-serif;
+    font-size:1.15rem;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .logo svg{width:26px;height:26px;flex-shrink:0;}
+  .nav-links{
+    display:flex;
+    gap:30px;
+    align-items:center;
+  }
+  .nav-links a{
+    color:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    opacity:0.82;
+    transition:opacity 0.2s, color 0.2s;
+    padding:6px 2px;
+    border-bottom:1px solid transparent;
+  }
+  .nav-links a:hover{opacity:1; border-color:var(--ember);}
+  .nav-links a:focus-visible, a:focus-visible, button:focus-visible{
+    outline:2px solid var(--flame-gold);
+    outline-offset:3px;
+  }
+  .nav-cta{
+    background:var(--ember);
+    color:var(--cream) !important;
+    padding:9px 18px;
+    border-radius:100px;
+    font-weight:600;
+  }
+  .nav-cta:hover{background:var(--flame-gold); color:var(--charcoal) !important;}
+  .cart-link{
+    position:relative;
+    display:flex;
+    align-items:center;
+    color:var(--cream);
+    padding:4px;
+  }
+  .cart-badge{
+    position:absolute;
+    top:-8px; right:-10px;
+    background:var(--ember);
+    color:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.62rem;
+    font-weight:700;
+    min-width:16px;
+    height:16px;
+    border-radius:100px;
+    align-items:center;
+    justify-content:center;
+    padding:0 4px;
+  }
+  .nav-toggle{display:none;background:none;border:none;color:var(--cream);}
+  @media(max-width:780px){
+    .nav-links{
+      position:absolute;
+      top:100%;left:0;right:0;
+      flex-direction:column;
+      background:var(--charcoal);
+      padding:20px 32px 28px;
+      border-bottom:1px solid var(--line);
+      display:none;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--charcoal);
+    color:var(--cream);
+    overflow:hidden;
+    padding:96px 0 120px;
+  }
+  .hero-trail{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:0.9;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    color:var(--flame-gold);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:22px;
+  }
+  .hero .eyebrow::before, .hero .eyebrow::after{
+    content:'';
+    width:26px;height:1px;
+    background:var(--flame-gold);
+    opacity:0.6;
+  }
+  .hero h1{
+    font-size:clamp(3.2rem, 11vw, 8.2rem);
+    margin:0;
+    background:linear-gradient(180deg, var(--cream) 45%, var(--flame-gold) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.sub{
+    max-width:560px;
+    margin:26px auto 0;
+    font-size:1.12rem;
+    color:rgba(242,232,216,0.78);
+    line-height:1.6;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    margin-top:38px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:600;
+    padding:15px 30px;
+    border-radius:100px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, background 0.2s, color 0.2s, border-color 0.2s;
+    display:inline-block;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--ember); color:var(--cream);}
+  .btn-primary:hover{background:var(--flame-gold); color:var(--charcoal);}
+  .btn-ghost{background:transparent; color:var(--cream); border-color:rgba(242,232,216,0.35);}
+  .btn-ghost:hover{border-color:var(--flame-gold); color:var(--flame-gold);}
+
+  .hero-stats{
+    display:flex;
+    justify-content:center;
+    gap:56px;
+    margin-top:72px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div{text-align:center;}
+  .hero-stats .num{
+    font-family:'Anton',sans-serif;
+    font-size:2.1rem;
+    color:var(--flame-gold);
+  }
+  .hero-stats .lbl{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:rgba(242,232,216,0.6);
+    margin-top:4px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:110px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head .eyebrow{color:var(--ember);margin-bottom:12px;display:block;}
+  .section-head h2{
+    font-size:clamp(2.2rem,5vw,3.4rem);
+    margin:0;
+    color:var(--charcoal);
+  }
+  .section-head p{
+    max-width:360px;
+    color:var(--ash);
+    line-height:1.6;
+    font-size:0.98rem;
+    margin:0;
+  }
+
+  /* ---------- STORY ---------- */
+  .story{background:var(--paper);}
+  .story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media(max-width:840px){ .story-grid{grid-template-columns:1fr;} }
+  .story-copy p{
+    color:var(--ash);
+    line-height:1.75;
+    font-size:1.05rem;
+    margin:0 0 18px;
+  }
+  .story-copy strong{color:var(--charcoal);}
+  .fuse-card{
+    background:var(--charcoal);
+    border-radius:var(--radius);
+    padding:36px;
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .fuse-card h3{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.5rem;
+    margin:0 0 20px;
+    color:var(--flame-gold);
+  }
+  .fuse-list{list-style:none;margin:0;padding:0;}
+  .fuse-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(242,232,216,0.12);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+  }
+  .fuse-list li:last-child{border-bottom:none;}
+  .fuse-list span:last-child{color:var(--flame-gold);}
+
+  /* ---------- PRODUCTS ---------- */
+  .products{background:var(--cream);}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--paper);
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line-dark);
+    display:flex;
+    flex-direction:column;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .card-art{
+    aspect-ratio:4/3;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--charcoal);
+    overflow:hidden;
+  }
+  .card-art svg{width:62%;height:62%;}
+  .variant-preview{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:var(--paper);
+  }
+  .card-tag{
+    position:absolute;
+    top:14px;left:14px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.65rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    background:var(--ember);
+    color:var(--cream);
+    padding:5px 10px;
+    border-radius:100px;
+  }
+  .card-body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column;}
+  .card-body h3{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.3rem;
+    margin:0 0 6px;
+    letter-spacing:0.01em;
+  }
+  .card-body .desc{
+    color:var(--ash);
+    font-size:0.9rem;
+    line-height:1.55;
+    margin:0 0 16px;
+    flex:1;
+  }
+  .card-specs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .variant-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:12px;
+  }
+  .variant-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ash-soft);
+    flex-shrink:0;
+  }
+  .gender-toggle{
+    display:flex;
+    border:1px solid var(--line-dark);
+    border-radius:100px;
+    padding:3px;
+    gap:2px;
+  }
+  .gender-btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-weight:600;
+    background:transparent;
+    border:none;
+    color:var(--ash);
+    padding:6px 14px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:background 0.2s, color 0.2s;
+  }
+  .gender-btn.active{
+    background:var(--charcoal);
+    color:var(--cream);
+  }
+  .title-select{
+    flex:1;
+    max-width:64%;
+    font-family:'Sora',sans-serif;
+    font-size:0.78rem;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid var(--line-dark);
+    background:var(--paper);
+    color:var(--charcoal);
+    cursor:pointer;
+  }
+  .title-select:focus-visible{outline:2px solid var(--flame-gold); outline-offset:1px;}
+  .spec{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ash-soft);
+    border:1px solid var(--line-dark);
+    padding:4px 9px;
+    border-radius:100px;
+  }
+  .card-foot{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    border-top:1px solid var(--line-dark);
+    padding-top:16px;
+  }
+  .card-foot-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .price{font-family:'Anton',sans-serif;font-size:1.25rem;}
+  .pc-qty{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--line-dark);
+    border-radius:100px;
+    padding:4px 6px;
+  }
+  .pc-qty-btn{
+    width:22px; height:22px;
+    border-radius:50%;
+    border:none;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background 0.2s, color 0.2s;
+  }
+  .pc-qty-btn:hover{background:var(--ember); color:var(--cream);}
+  .pc-qty-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+    min-width:14px;
+    text-align:center;
+  }
+  .add-btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-weight:600;
+    background:var(--charcoal);
+    color:var(--cream);
+    border:none;
+    padding:12px 16px;
+    border-radius:100px;
+    cursor:pointer;
+    width:100%;
+    transition:background 0.2s, color 0.2s;
+  }
+  .add-btn:hover{background:var(--ember);}
+  .add-btn.added{background:var(--flame-gold); color:var(--charcoal);}
+
+  /* ---------- MERCH ---------- */
+  .merch{background:var(--paper);}
+
+  /* ---------- BREW STRIP ---------- */
+  .strip{
+    background:var(--ember);
+    color:var(--cream);
+    padding:52px 0;
+    overflow:hidden;
+  }
+  .strip-track{
+    display:flex;
+    gap:52px;
+    white-space:nowrap;
+    animation:scroll 22s linear infinite;
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.6rem;
+    letter-spacing:0.02em;
+  }
+  .strip-track span{opacity:0.92;}
+  .strip-track span.dim{opacity:0.55;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--cream);}
+  .faq-list{max-width:780px; margin:0 auto;}
+  .faq-item{
+    border-bottom:1px solid var(--line-dark);
+    padding:22px 0;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    font-weight:600;
+    font-size:1.05rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:'+';
+    font-family:'Anton',sans-serif;
+    font-size:1.4rem;
+    color:var(--ember);
+    flex-shrink:0;
+    transition:transform 0.2s;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{color:var(--ash); line-height:1.7; margin:14px 0 0; font-size:0.95rem;}
+
+  /* ---------- NEWSLETTER / FOOTER ---------- */
+  .cta-band{
+    background:var(--charcoal);
+    color:var(--cream);
+    text-align:center;
+    padding:100px 0;
+  }
+  .cta-band h2{font-size:clamp(2rem,5vw,3.2rem); margin:0 0 18px;}
+  .cta-band p{color:rgba(242,232,216,0.7); max-width:480px; margin:0 auto 34px; line-height:1.6;}
+  .signup{
+    display:flex;
+    max-width:420px;
+    margin:0 auto;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .signup input{
+    flex:1;
+    min-width:200px;
+    padding:14px 18px;
+    border-radius:100px;
+    border:1px solid rgba(242,232,216,0.25);
+    background:transparent;
+    color:var(--cream);
+    font-family:'Sora',sans-serif;
+    font-size:0.92rem;
+  }
+  .signup input::placeholder{color:rgba(242,232,216,0.45);}
+  .signup input:focus-visible{outline:2px solid var(--flame-gold); outline-offset:2px;}
+  .signup-msg{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    color:var(--flame-gold);
+    margin-top:16px;
+    min-height:1.2em;
+  }
+
+  footer{
+    background:var(--charcoal);
+    color:rgba(242,232,216,0.6);
+    border-top:1px solid var(--line);
+    padding:44px 0 34px;
+  }
+  .foot-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    align-items:center;
+  }
+  .foot-links{display:flex; gap:24px; flex-wrap:wrap;}
+  .foot-links a{font-size:0.82rem; opacity:0.75; transition:opacity 0.2s;}
+  .foot-links a:hover{opacity:1; color:var(--flame-gold);}
+  .foot-fine{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    text-align:center;
+    margin-top:30px;
+    opacity:0.4;
+    letter-spacing:0.04em;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bfcafes.com/#organization",
+      "name": "Buttfire Coffee",
+      "url": "https://bfcafes.com/",
+      "description": "Single-origin, light roast whole bean coffee, roasted to order and shipped within 48 hours."
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://bfcafes.com/",
+      "name": "Buttfire Coffee",
+      "publisher": { "@id": "https://bfcafes.com/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "The Quick Start (12oz)",
+      "description": "12oz bag of single-origin, light roast whole bean coffee.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "18.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#beans"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "The Full Sprint (2lb)",
+      "description": "2lb bag of single-origin, light roast whole bean coffee.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "46.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#beans"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "The Long Haul (5lb)",
+      "description": "5lb bag of single-origin, light roast whole bean coffee.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "99.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#beans"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Ignition Mug",
+      "description": "14oz ceramic mug with a sprinting stick figure printed on the face.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "22.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Lit Fuse Tee",
+      "description": "Heavyweight cotton tee with a lit-fuse coffee bean printed on the chest.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "32.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Fast Lane Cap",
+      "description": "Unstructured trucker cap with an embroidered flame and speed lines.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "26.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Grab & Go Tote",
+      "description": "Heavy canvas tote with the stacked BUTTFIRE wordmark.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "20.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Spark Pack",
+      "description": "Five vinyl stickers: flame mark, running-figure badge, coffee cup, and speed streak.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "10.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "The Pour-Over Pocket Guide",
+      "description": "A pocket-size brew card with ratios, grind size, and timing for the light roast.",
+      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "6.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bfcafes.com/#merch"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
+        <path d="M12.5 19C10.5 19 9 17.3 9 15.4C9 13.9 9.9 13 10.4 12.3C10.5 13.4 11.1 13.9 11.6 14C11.4 12.8 11.9 11.9 12.6 10.9C13.6 13 14.5 13.6 14.5 15.2C14.5 17.3 13.6 19 12.5 19Z" fill="#F2A93C"/>
+      </svg>
+      Buttfire
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#beans">Beans</a>
+      <a href="#merch">Merch</a>
+      <a href="#story">Origin</a>
+      <a href="#faq">FAQ</a>
+      <a href="#signup" class="nav-cta">Get on the list</a>
+      <a href="checkout.html" class="cart-link" aria-label="View bag">
+        <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M6 8H18L17 20H7L6 8Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6C9 4 10.5 2 12 2C13.5 2 15 4 15 6V8" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-trail" viewBox="0 0 1180 520" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-50 480 C 250 420, 350 300, 550 260 S 900 120, 1230 40" stroke="#D6401C" stroke-width="2" fill="none" opacity="0.35"/>
+      <path d="M-50 520 C 300 480, 420 360, 600 320 S 950 180, 1230 90" stroke="#F2A93C" stroke-width="1.5" fill="none" opacity="0.22" stroke-dasharray="6 10"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Single origin · Light roast only</span>
+      <h1 class="display">Buttfire<br>Coffee</h1>
+      <p class="sub">Born from the years we spent moving too fast to sit down. Light roast, because it hits harder and gets you out the door faster. Whole bean, always. No shortcuts, just a lit fuse in a bag.</p>
+      <div class="hero-ctas">
+        <a href="#beans" class="btn btn-primary">Shop the beans</a>
+        <a href="#merch" class="btn btn-ghost">See the gear</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">100%</div><div class="lbl">Whole Bean</div></div>
+        <div><div class="num">Light</div><div class="lbl">Roast Level</div></div>
+        <div><div class="num">48H</div><div class="lbl">Roast To Ship</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section story" id="story">
+    <div class="wrap story-grid">
+      <div class="story-copy">
+        <span class="eyebrow" style="color:var(--ember);">The origin</span>
+        <h2 class="display" style="font-size:clamp(2rem,4vw,2.8rem);margin:14px 0 22px;">Named for the hurry we used to be in.</h2>
+        <p>Buttfire started as a joke between people who were always <strong>one meeting, one flight, one deadline behind</strong> — the kind of pace where you don't have time to sit with a cup, you just need it to work, fast, and get you where you're going.</p>
+        <p>We picked light roast on purpose. Less time in the drum means more of the bean's original density survives, and that means <strong>a sharper, more caffeinated cup</strong> than the dark stuff that gets roasted low and slow. It's the roast for people who need to move.</p>
+        <p>Every bag is whole bean, never pre-ground, because grinding on demand is the last five minutes of patience we're willing to ask of you.</p>
+      </div>
+      <div class="fuse-card">
+        <h3>The Fine Print, Fast</h3>
+        <ul class="fuse-list">
+          <li><span>Roast level</span><span>Light, always</span></li>
+          <li><span>Format</span><span>Whole bean only</span></li>
+          <li><span>Origin</span><span>Single-origin, rotating lot</span></li>
+          <li><span>Roasted</span><span>To order, weekly batches</span></li>
+          <li><span>Shipped</span><span>Within 48 hours of roast</span></li>
+          <li><span>Bag sizes</span><span>12oz · 2lb · 5lb</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOVING STRIP -->
+  <div class="strip">
+    <div class="wrap" style="overflow:hidden;">
+      <div class="strip-track">
+        <span>Light roast</span><span class="dim">·</span>
+        <span>Whole bean</span><span class="dim">·</span>
+        <span>No shortcuts</span><span class="dim">·</span>
+        <span>Get up and go</span><span class="dim">·</span>
+        <span>Light roast</span><span class="dim">·</span>
+        <span>Whole bean</span><span class="dim">·</span>
+        <span>No shortcuts</span><span class="dim">·</span>
+        <span>Get up and go</span><span class="dim">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="section products" id="beans">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">The lineup</span>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Grab a bag</h2>
+        </div>
+        <p>Same light roast, three sizes. Buy small to try it, buy big because you already know.</p>
+      </div>
+
+      <div class="grid" id="beanGrid">
+
+        <div class="card">
+          <div class="card-art">
+            <span class="card-tag">Best to try</span>
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="12oz" src="images/bags/bag-12oz-male.png" alt="The Quick Start bag pattern preview" />
+          </div>
+          <div class="card-body">
+            <h3>The Quick Start</h3>
+            <p class="desc">12oz bag. The one-cup-at-a-time size for mornings that start ten minutes late.</p>
+            <div class="card-specs">
+              <span class="spec">Light roast</span>
+              <span class="spec">Whole bean</span>
+              <span class="spec">~18 cups</span>
+            </div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="quick-start-12oz">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$18</span>
+                <div class="pc-qty" data-id="quick-start-12oz">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="quick-start-12oz" data-name="The Quick Start (12oz)" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <span class="card-tag">Most popular</span>
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="2lb" src="images/bags/bag-2lb-male.png" alt="The Full Sprint bag pattern preview" />
+          </div>
+          <div class="card-body">
+            <h3>The Full Sprint</h3>
+            <p class="desc">2lb bag. For the desk drawer, the office kitchen, or the week you can't afford to slow down.</p>
+            <div class="card-specs">
+              <span class="spec">Light roast</span>
+              <span class="spec">Whole bean</span>
+              <span class="spec">~48 cups</span>
+            </div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="full-sprint-2lb">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$46</span>
+                <div class="pc-qty" data-id="full-sprint-2lb">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="full-sprint-2lb" data-name="The Full Sprint (2lb)" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <span class="card-tag">Best value</span>
+            <img class="variant-preview bag-preview" data-bag-preview data-weight="5lb" src="images/bags/bag-5lb-male.png" alt="The Long Haul bag pattern preview" />
+          </div>
+          <div class="card-body">
+            <h3>The Long Haul</h3>
+            <p class="desc">5lb bag. For the household, the office, or the person who has decided decaf isn't real.</p>
+            <div class="card-specs">
+              <span class="spec">Light roast</span>
+              <span class="spec">Whole bean</span>
+              <span class="spec">~120 cups</span>
+            </div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="long-haul-5lb">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$99</span>
+                <div class="pc-qty" data-id="long-haul-5lb">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="long-haul-5lb" data-name="The Long Haul (5lb)" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section class="section merch" id="merch">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">The gear</span>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Wear the fire</h2>
+        </div>
+        <p>Merch for people who've already got the beans and want everyone else to know it.</p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-art">
+            <img id="mug-preview" src="images/mugs/wrap-pmp-male.png" alt="Ignition Mug preview" class="variant-preview" />
+          </div>
+          <div class="card-body">
+            <h3>Ignition Mug</h3>
+            <p class="desc">14oz ceramic, matte dark brown glaze. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
+            <div class="card-specs"><span class="spec">Ceramic</span><span class="spec">14oz</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="ignition-mug">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="ignition-mug">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$22</span>
+                <div class="pc-qty" data-id="ignition-mug">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="ignition-mug" data-name="Ignition Mug" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <img id="tee-preview" src="images/tees/tee-pmp-male.png" alt="Lit Fuse Tee preview" class="variant-preview" />
+          </div>
+          <div class="card-body">
+            <h3>Lit Fuse Tee</h3>
+            <p class="desc">Heavyweight cotton tee, dark brown. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
+            <div class="card-specs"><span class="spec">100% cotton</span><span class="spec">S–XXL</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="lit-fuse-tee">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="lit-fuse-tee">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$32</span>
+                <div class="pc-qty" data-id="lit-fuse-tee">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="lit-fuse-tee" data-name="Lit Fuse Tee" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <img id="cap-preview" src="images/caps/cap-pmp-male.png" alt="Fast Lane Cap preview" class="variant-preview" />
+          </div>
+          <div class="card-body">
+            <h3>Fast Lane Cap</h3>
+            <p class="desc">Unstructured trucker cap, dark brown front panel, mesh back. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
+            <div class="card-specs"><span class="spec">Adjustable</span><span class="spec">One size</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="fast-lane-cap">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="fast-lane-cap">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$26</span>
+                <div class="pc-qty" data-id="fast-lane-cap">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="fast-lane-cap" data-name="Fast Lane Cap" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <img id="tote-preview" src="images/totes/tote-pmp-male.png" alt="Grab & Go Tote preview" class="variant-preview" />
+          </div>
+          <div class="card-body">
+            <h3>Grab &amp; Go Tote</h3>
+            <p class="desc">Heavy canvas tote. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
+            <div class="card-specs"><span class="spec">Canvas</span><span class="spec">16"×14"</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="grab-go-tote">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="grab-go-tote">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$20</span>
+                <div class="pc-qty" data-id="grab-go-tote">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="grab-go-tote" data-name="Grab & Go Tote" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <img id="spark-preview" src="images/sparkpacks/spark-pmp-male.png" alt="Spark Pack preview" class="variant-preview" />
+          </div>
+          <div class="card-body">
+            <h3>Spark Pack</h3>
+            <p class="desc">Five vinyl stickers. Pick your title and colorway — the Buttfire mark comes standard on every one. Weatherproof.</p>
+            <div class="card-specs"><span class="spec">5 stickers</span><span class="spec">Vinyl</span></div>
+
+            <div class="variant-row">
+              <span class="variant-label">Colorway</span>
+              <div class="gender-toggle" data-id="spark-pack">
+                <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                <button type="button" class="gender-btn" data-gender="female">Female</button>
+              </div>
+            </div>
+            <div class="variant-row">
+              <span class="variant-label">Title</span>
+              <select class="title-select" data-id="spark-pack">
+                <option value="pmp" selected>PMP — Project Management Professional</option>
+                <option value="ccm">CCM — Certified Construction Manager</option>
+                <option value="oe">OE — Office Engineer</option>
+                <option value="ce">CE — Construction Engineer</option>
+                <option value="re">RE — Resident Engineer</option>
+                <option value="pe">PE — Professional Engineer</option>
+                <option value="idr">IDR — Inspector's Daily Report</option>
+                <option value="pm">PM — Project Manager</option>
+                <option value="crew">CREW</option>
+                <option value="eo">EO — Equipment Operator</option>
+                <option value="heo">HEO — Heavy Equipment Operator</option>
+                <option value="qi">QI — Quality Inspector</option>
+                <option value="qa">QA — Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$10</span>
+                <div class="pc-qty" data-id="spark-pack">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="spark-pack" data-name="Spark Pack" data-variant="true">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-art">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <rect x="0" y="0" width="100" height="100" fill="#4A2E1A"/>
+              <!-- simple wordmark, matching the mark used elsewhere -->
+              <path d="M50 32 C 48 36, 44 38.5, 44 43 C 44 46.5, 47 49.5, 50 49.5 C 54 49.5, 57 46.5, 57 42.5 C 57 40, 55.5 37.5, 53.5 35.5 C 53.5 38, 52 40, 50.5 41 C 51.3 38.5, 50.5 35.5, 50 32Z" fill="#D6401C"/>
+              <text x="50" y="61" text-anchor="middle" font-family="Anton" font-size="10.5" fill="#F7F1E4">BFcafes.com</text>
+              <text x="50" y="69" text-anchor="middle" font-family="Anton" font-size="7" fill="#C9BFAF">BUTTFIRE roast</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>The Pour-Over Pocket Guide</h3>
+            <p class="desc">A printed pocket guide with 8 international recipes — pour-over, Chemex, French press, AeroPress, cold brew, and more — plus storage tips, tasting notes, and a brew log to track what works.</p>
+            <div class="card-specs"><span class="spec">9 pages</span><span class="spec">8 recipes</span></div>
+            <div class="card-foot">
+              <div class="card-foot-top">
+                <span class="price">$6</span>
+                <div class="pc-qty" data-id="pourover-guide">
+                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span class="pc-qty-num">1</span>
+                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="add-btn" data-id="pourover-guide" data-name="Pour-Over Pocket Guide">Add to bag</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="justify-content:center;text-align:center;">
+        <div style="width:100%;">
+          <span class="eyebrow" style="color:var(--ember);">Questions</span>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Before you order</h2>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Why only light roast?</summary>
+          <p>Light roast spends less time in the drum, so more of the bean's original density and caffeine content survives the process. It's brighter, more acidic, and hits harder — which is the entire point of the brand.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you sell ground coffee?</summary>
+          <p>No, and we won't. Grinding is the one step we think you should do yourself, right before you brew — it's what keeps the coffee tasting like it did the day it was roasted.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where do the beans come from?</summary>
+          <p>We work with a single origin at a time, rotating the lot every few months as harvests change. The current origin and altitude are printed on every bag.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast do you ship?</summary>
+          <p>Every batch is roasted to order and shipped within 48 hours of roasting. No warehouse sitting, no stale bags.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer a subscription?</summary>
+          <p>Not yet — for now every order is one-time. Join the list below and you'll be the first to know when subscriptions go live.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="cta-band" id="signup">
+    <div class="wrap">
+      <h2 class="display">Get the next roast first</h2>
+      <p>New origins, new merch drops, and first dibs before we sell out. No spam, just fire.</p>
+      <form class="signup" id="signupForm">
+        <input type="email" required placeholder="you@email.com" aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      </form>
+      <div class="signup-msg" id="signupMsg"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="logo" href="#top" style="color:var(--cream);">
+        <svg viewBox="0 0 24 24" fill="none" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
+        </svg>
+        Buttfire Coffee
+      </a>
+      <div class="foot-links">
+        <a href="#beans">Beans</a>
+        <a href="#merch">Merch</a>
+        <a href="#story">Origin</a>
+        <a href="#faq">FAQ</a>
+        <a href="#signup">Newsletter</a>
+      </div>
+    </div>
+    <div class="foot-fine">© 2026 BUTTFIRE COFFEE CO. · LIGHT ROAST, WHOLE BEAN, NO SHORTCUTS.</div>
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+  // mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // per-card quantity steppers
+  document.querySelectorAll('.pc-qty').forEach(stepper => {
+    const numEl = stepper.querySelector('.pc-qty-num');
+    stepper.querySelectorAll('.pc-qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        let current = parseInt(numEl.textContent, 10) || 1;
+        if (btn.dataset.action === 'inc') current += 1;
+        if (btn.dataset.action === 'dec') current = Math.max(1, current - 1);
+        numEl.textContent = current;
+      });
+    });
+  });
+
+  // variant selectors (gender toggle + title dropdown) with live preview image
+  document.querySelectorAll('.gender-toggle').forEach(toggle => {
+    const card = toggle.closest('.card');
+    const preview = card ? card.querySelector('.variant-preview') : null;
+    const titleSelect = card ? card.querySelector('.title-select') : null;
+
+    function updatePreview() {
+      if (!preview) return;
+      const gender = toggle.querySelector('.gender-btn.active').dataset.gender;
+      if (titleSelect) {
+        // title + gender products: mug, tote, cap, tee each have their own image folder
+        const title = titleSelect.value;
+        const routes = {
+          'tote-preview': { folder: 'totes', prefix: 'tote' },
+          'cap-preview': { folder: 'caps', prefix: 'cap' },
+          'tee-preview': { folder: 'tees', prefix: 'tee' },
+          'spark-preview': { folder: 'sparkpacks', prefix: 'spark' }
+        };
+        const route = routes[preview.id] || { folder: 'mugs', prefix: 'wrap' };
+        preview.src = `images/${route.folder}/${route.prefix}-${title}-${gender}.png`;
+      } else if (preview.hasAttribute('data-bag-preview')) {
+        // bag-style: weight + gender
+        const weight = preview.dataset.weight;
+        preview.src = `images/bags/bag-${weight}-${gender}.png`;
+      }
+    }
+
+    toggle.querySelectorAll('.gender-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggle.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePreview();
+      });
+    });
+
+    if (titleSelect) titleSelect.addEventListener('change', updatePreview);
+  });
+
+  // add-to-bag: writes to the shared localStorage cart (cart.js),
+  // using whatever quantity is set on that card's stepper, and — for
+  // products with a gender/title selector — the current selection.
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const card = btn.closest('.card');
+      const stepper = card ? card.querySelector('.pc-qty') : null;
+      const numEl = stepper ? stepper.querySelector('.pc-qty-num') : null;
+      const qty = numEl ? (parseInt(numEl.textContent, 10) || 1) : 1;
+
+      let variant = null;
+      if (btn.dataset.variant === 'true' && card) {
+        const genderToggle = card.querySelector('.gender-toggle');
+        const titleSelect = card.querySelector('.title-select');
+        const gender = genderToggle ? genderToggle.querySelector('.gender-btn.active').dataset.gender : null;
+        const title = titleSelect ? titleSelect.value : null;
+        variant = { gender, title };
+      }
+
+      if (id) addToCart(id, qty, variant);
+
+      const original = btn.textContent;
+      btn.textContent = qty > 1 ? `Added ${qty} ✓` : 'Added ✓';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('added');
+      }, 1600);
+
+      // reset the stepper back to 1 after adding
+      if (numEl) numEl.textContent = '1';
+    });
+  });
+
+  // fake signup
+  document.getElementById('signupForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('signupMsg').textContent = "You're on the list. First bag's on us to notify.";
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
