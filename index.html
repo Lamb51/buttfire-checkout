@@ -1011,9 +1011,12 @@
     });
   });
 
-  // fake signup
+  // signup — no backend yet (nothing is actually stored/emailed), but
+  // fires a GA4 sign_up event so this counts as a trackable conversion
+  // once Google Ads is linked to this GA4 property.
   document.getElementById('signupForm').addEventListener('submit', (e) => {
     e.preventDefault();
+    if (typeof gtag === 'function') gtag('event', 'sign_up', { method: 'newsletter' });
     document.getElementById('signupMsg').textContent = "You're on the list. First bag's on us to notify.";
     e.target.reset();
   });
