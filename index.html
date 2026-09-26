@@ -15,21 +15,21 @@
 <!-- your existing website code continues below -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buttfire Coffee — Light Roast, Lit Fast</title>
-<meta name="description" content="Buttfire Coffee — single-origin, light roast whole bean coffee, roasted to order and shipped within 48 hours. Plus mugs, tees, and gear for people who move fast.">
+<title>Buttfire Coffee — Dark Roast, Lit Fast</title>
+<meta name="description" content="Buttfire Coffee — dark roast whole bean coffee in two origins, Ethiopian and Costa Rican, plus the Buttfire mug.">
 <link rel="canonical" href="https://bfcafes.com/">
 
 <!-- Open Graph / social link previews -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Buttfire Coffee — Light Roast, Lit Fast">
-<meta property="og:description" content="Single-origin, light roast whole bean coffee, roasted to order. Plus mugs, tees, and gear for people who move fast.">
+<meta property="og:title" content="Buttfire Coffee — Dark Roast, Lit Fast">
+<meta property="og:description" content="Dark roast whole bean coffee in two origins, Ethiopian and Costa Rican, plus the Buttfire mug.">
 <meta property="og:url" content="https://bfcafes.com/">
 <meta property="og:site_name" content="Buttfire Coffee">
 
 <!-- Twitter/X card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Buttfire Coffee — Light Roast, Lit Fast">
-<meta name="twitter:description" content="Single-origin, light roast whole bean coffee, roasted to order. Plus mugs, tees, and gear for people who move fast.">
+<meta name="twitter:title" content="Buttfire Coffee — Dark Roast, Lit Fast">
+<meta name="twitter:description" content="Dark roast whole bean coffee in two origins, Ethiopian and Costa Rican, plus the Buttfire mug.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,6 +355,9 @@
   }
   @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:600px){ .grid{grid-template-columns:1fr;} }
+  .grid-2{grid-template-columns:repeat(2,1fr); max-width:760px; margin:0 auto;}
+  .grid-1{grid-template-columns:1fr; max-width:380px; margin:0 auto;}
+  @media(max-width:600px){ .grid-2{grid-template-columns:1fr;} }
 
   .card{
     background:var(--paper);
@@ -415,59 +418,6 @@
     flex-wrap:wrap;
     margin-bottom:18px;
   }
-  .variant-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:12px;
-  }
-  .variant-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.68rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ash-soft);
-    flex-shrink:0;
-  }
-  .gender-toggle{
-    display:flex;
-    border:1px solid var(--line-dark);
-    border-radius:100px;
-    padding:3px;
-    gap:2px;
-  }
-  .gender-btn{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.68rem;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    font-weight:600;
-    background:transparent;
-    border:none;
-    color:var(--ash);
-    padding:6px 14px;
-    border-radius:100px;
-    cursor:pointer;
-    transition:background 0.2s, color 0.2s;
-  }
-  .gender-btn.active{
-    background:var(--charcoal);
-    color:var(--cream);
-  }
-  .title-select{
-    flex:1;
-    max-width:64%;
-    font-family:'Sora',sans-serif;
-    font-size:0.78rem;
-    padding:8px 10px;
-    border-radius:8px;
-    border:1px solid var(--line-dark);
-    background:var(--paper);
-    color:var(--charcoal);
-    cursor:pointer;
-  }
-  .title-select:focus-visible{outline:2px solid var(--flame-gold); outline-offset:1px;}
   .spec{
     font-family:'JetBrains Mono',monospace;
     font-size:0.66rem;
@@ -667,7 +617,7 @@
       "@id": "https://bfcafes.com/#organization",
       "name": "Buttfire Coffee",
       "url": "https://bfcafes.com/",
-      "description": "Single-origin, light roast whole bean coffee, roasted to order and shipped within 48 hours."
+      "description": "Dark roast whole bean coffee, two origins."
     },
     {
       "@type": "WebSite",
@@ -677,8 +627,8 @@
     },
     {
       "@type": "Product",
-      "name": "The Quick Start (12oz)",
-      "description": "12oz bag of single-origin, light roast whole bean coffee.",
+      "name": "Ethiopian Buttfire Roast (12oz)",
+      "description": "12oz bag of Ethiopian, dark roast whole bean coffee.",
       "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
       "offers": {
         "@type": "Offer",
@@ -690,104 +640,26 @@
     },
     {
       "@type": "Product",
-      "name": "The Full Sprint (2lb)",
-      "description": "2lb bag of single-origin, light roast whole bean coffee.",
+      "name": "Costa Rican Buttfire Roast (12oz)",
+      "description": "12oz bag of Costa Rican, dark roast whole bean coffee.",
       "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "46.00",
+        "price": "18.00",
         "availability": "https://schema.org/InStock",
         "url": "https://bfcafes.com/#beans"
       }
     },
     {
       "@type": "Product",
-      "name": "The Long Haul (5lb)",
-      "description": "5lb bag of single-origin, light roast whole bean coffee.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "99.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#beans"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Ignition Mug",
-      "description": "14oz ceramic mug with a sprinting stick figure printed on the face.",
+      "name": "Buttfire Mug",
+      "description": "14oz ceramic mug with the Buttfire mark.",
       "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
         "price": "22.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Lit Fuse Tee",
-      "description": "Heavyweight cotton tee with a lit-fuse coffee bean printed on the chest.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "32.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Fast Lane Cap",
-      "description": "Unstructured trucker cap with an embroidered flame and speed lines.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "26.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Grab & Go Tote",
-      "description": "Heavy canvas tote with the stacked BUTTFIRE wordmark.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "20.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Spark Pack",
-      "description": "Five vinyl stickers: flame mark, running-figure badge, coffee cup, and speed streak.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "10.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "The Pour-Over Pocket Guide",
-      "description": "A pocket-size brew card with ratios, grind size, and timing for the light roast.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "6.00",
         "availability": "https://schema.org/InStock",
         "url": "https://bfcafes.com/#merch"
       }
@@ -822,7 +694,7 @@
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#beans">Beans</a>
-      <a href="#merch">Merch</a>
+      <a href="#merch">Mug</a>
       <a href="#story">Origin</a>
       <a href="#faq">FAQ</a>
       <a href="#signup" class="nav-cta">Get on the list</a>
@@ -843,17 +715,17 @@
       <path d="M-50 520 C 300 480, 420 360, 600 320 S 950 180, 1230 90" stroke="#F2A93C" stroke-width="1.5" fill="none" opacity="0.22" stroke-dasharray="6 10"/>
     </svg>
     <div class="wrap hero-inner">
-      <span class="eyebrow">Single origin · Light roast only</span>
+      <span class="eyebrow">Dark roast · Two origins</span>
       <h1 class="display">Buttfire<br>Coffee</h1>
-      <p class="sub">Born from the years we spent moving too fast to sit down. Light roast, because it hits harder and gets you out the door faster. Whole bean, always. No shortcuts, just a lit fuse in a bag.</p>
+      <p class="sub">Dark roast, whole bean, two origins. No shortcuts, just a lit fuse in a bag.</p>
       <div class="hero-ctas">
         <a href="#beans" class="btn btn-primary">Shop the beans</a>
-        <a href="#merch" class="btn btn-ghost">See the gear</a>
+        <a href="#merch" class="btn btn-ghost">See the mug</a>
       </div>
       <div class="hero-stats">
         <div><div class="num">100%</div><div class="lbl">Whole Bean</div></div>
-        <div><div class="num">Light</div><div class="lbl">Roast Level</div></div>
-        <div><div class="num">48H</div><div class="lbl">Roast To Ship</div></div>
+        <div><div class="num">Dark</div><div class="lbl">Roast Level</div></div>
+        <div><div class="num">2</div><div class="lbl">Origins</div></div>
       </div>
     </div>
   </section>
@@ -864,19 +736,16 @@
       <div class="story-copy">
         <span class="eyebrow" style="color:var(--ember);">The origin</span>
         <h2 class="display" style="font-size:clamp(2rem,4vw,2.8rem);margin:14px 0 22px;">Named for the hurry we used to be in.</h2>
-        <p>Buttfire started as a joke between people who were always <strong>one meeting, one flight, one deadline behind</strong> — the kind of pace where you don't have time to sit with a cup, you just need it to work, fast, and get you where you're going.</p>
-        <p>We picked light roast on purpose. Less time in the drum means more of the bean's original density survives, and that means <strong>a sharper, more caffeinated cup</strong> than the dark stuff that gets roasted low and slow. It's the roast for people who need to move.</p>
-        <p>Every bag is whole bean, never pre-ground, because grinding on demand is the last five minutes of patience we're willing to ask of you.</p>
+        <p>Buttfire started as a joke between people who were always <strong>one meeting, one flight, one deadline behind</strong>. Fast coffee, for a fast life.</p>
+        <p>We picked dark roast on purpose — more time in the drum means <strong>a bolder, deeper cup</strong>. Every bag is whole bean, ground fresh by you, right before you brew.</p>
       </div>
       <div class="fuse-card">
         <h3>The Fine Print, Fast</h3>
         <ul class="fuse-list">
-          <li><span>Roast level</span><span>Light, always</span></li>
+          <li><span>Roast level</span><span>Dark, always</span></li>
           <li><span>Format</span><span>Whole bean only</span></li>
-          <li><span>Origin</span><span>Single-origin, rotating lot</span></li>
-          <li><span>Roasted</span><span>To order, weekly batches</span></li>
-          <li><span>Shipped</span><span>Within 48 hours of roast</span></li>
-          <li><span>Bag sizes</span><span>12oz · 2lb · 5lb</span></li>
+          <li><span>Origins</span><span>Ethiopian · Costa Rican</span></li>
+          <li><span>Bag size</span><span>12oz only</span></li>
         </ul>
       </div>
     </div>
@@ -886,11 +755,11 @@
   <div class="strip">
     <div class="wrap" style="overflow:hidden;">
       <div class="strip-track">
-        <span>Light roast</span><span class="dim">·</span>
+        <span>Dark roast</span><span class="dim">·</span>
         <span>Whole bean</span><span class="dim">·</span>
         <span>No shortcuts</span><span class="dim">·</span>
         <span>Get up and go</span><span class="dim">·</span>
-        <span>Light roast</span><span class="dim">·</span>
+        <span>Dark roast</span><span class="dim">·</span>
         <span>Whole bean</span><span class="dim">·</span>
         <span>No shortcuts</span><span class="dim">·</span>
         <span>Get up and go</span><span class="dim">·</span>
@@ -906,115 +775,71 @@
           <span class="eyebrow">The lineup</span>
           <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Grab a bag</h2>
         </div>
-        <p>Same light roast, three sizes. Buy small to try it, buy big because you already know.</p>
+        <p>Two origins, one roast level. Dark, whole bean, 12oz.</p>
       </div>
 
-      <div class="grid" id="beanGrid">
+      <div class="grid grid-2" id="beanGrid">
 
         <div class="card">
           <div class="card-art">
-            <span class="card-tag">Best to try</span>
-            <img class="variant-preview bag-preview" data-bag-preview data-weight="12oz" src="images/bags/bag-12oz-male.png" alt="The Quick Start bag pattern preview" />
+            <span class="card-tag">Origin</span>
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <rect x="0" y="0" width="100" height="100" fill="#4A2E1A"/>
+              <path d="M50 32 C 48 36, 44 38.5, 44 43 C 44 46.5, 47 49.5, 50 49.5 C 54 49.5, 57 46.5, 57 42.5 C 57 40, 55.5 37.5, 53.5 35.5 C 53.5 38, 52 40, 50.5 41 C 51.3 38.5, 50.5 35.5, 50 32Z" fill="#D6401C"/>
+              <text x="50" y="61" text-anchor="middle" font-family="Anton" font-size="9" fill="#F7F1E4">ETHIOPIAN</text>
+              <text x="50" y="69" text-anchor="middle" font-family="Anton" font-size="7" fill="#C9BFAF">BUTTFIRE ROAST</text>
+            </svg>
           </div>
           <div class="card-body">
-            <h3>The Quick Start</h3>
-            <p class="desc">12oz bag. The one-cup-at-a-time size for mornings that start ten minutes late.</p>
+            <h3>Ethiopian Buttfire Roast</h3>
+            <p class="desc">12oz bag. Bold, fruit-forward, dark roast whole bean.</p>
             <div class="card-specs">
-              <span class="spec">Light roast</span>
+              <span class="spec">Dark roast</span>
               <span class="spec">Whole bean</span>
-              <span class="spec">~18 cups</span>
+              <span class="spec">12oz</span>
             </div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="quick-start-12oz">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-
             <div class="card-foot">
               <div class="card-foot-top">
                 <span class="price">$18</span>
-                <div class="pc-qty" data-id="quick-start-12oz">
+                <div class="pc-qty" data-id="ethiopian-12oz">
                   <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
                   <span class="pc-qty-num">1</span>
                   <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
                 </div>
               </div>
-              <button class="add-btn" data-id="quick-start-12oz" data-name="The Quick Start (12oz)" data-variant="true">Add to bag</button>
+              <button class="add-btn" data-id="ethiopian-12oz" data-name="Ethiopian Buttfire Roast (12oz)">Add to bag</button>
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-art">
-            <span class="card-tag">Most popular</span>
-            <img class="variant-preview bag-preview" data-bag-preview data-weight="2lb" src="images/bags/bag-2lb-male.png" alt="The Full Sprint bag pattern preview" />
+            <span class="card-tag">Origin</span>
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <rect x="0" y="0" width="100" height="100" fill="#4A2E1A"/>
+              <path d="M50 32 C 48 36, 44 38.5, 44 43 C 44 46.5, 47 49.5, 50 49.5 C 54 49.5, 57 46.5, 57 42.5 C 57 40, 55.5 37.5, 53.5 35.5 C 53.5 38, 52 40, 50.5 41 C 51.3 38.5, 50.5 35.5, 50 32Z" fill="#D6401C"/>
+              <text x="50" y="61" text-anchor="middle" font-family="Anton" font-size="8" fill="#F7F1E4">COSTA RICAN</text>
+              <text x="50" y="69" text-anchor="middle" font-family="Anton" font-size="7" fill="#C9BFAF">BUTTFIRE ROAST</text>
+            </svg>
           </div>
           <div class="card-body">
-            <h3>The Full Sprint</h3>
-            <p class="desc">2lb bag. For the desk drawer, the office kitchen, or the week you can't afford to slow down.</p>
+            <h3>Costa Rican Buttfire Roast</h3>
+            <p class="desc">12oz bag. Balanced, sweet, dark roast whole bean.</p>
             <div class="card-specs">
-              <span class="spec">Light roast</span>
+              <span class="spec">Dark roast</span>
               <span class="spec">Whole bean</span>
-              <span class="spec">~48 cups</span>
+              <span class="spec">12oz</span>
             </div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="full-sprint-2lb">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-
             <div class="card-foot">
               <div class="card-foot-top">
-                <span class="price">$46</span>
-                <div class="pc-qty" data-id="full-sprint-2lb">
+                <span class="price">$18</span>
+                <div class="pc-qty" data-id="costa-rican-12oz">
                   <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
                   <span class="pc-qty-num">1</span>
                   <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
                 </div>
               </div>
-              <button class="add-btn" data-id="full-sprint-2lb" data-name="The Full Sprint (2lb)" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-art">
-            <span class="card-tag">Best value</span>
-            <img class="variant-preview bag-preview" data-bag-preview data-weight="5lb" src="images/bags/bag-5lb-male.png" alt="The Long Haul bag pattern preview" />
-          </div>
-          <div class="card-body">
-            <h3>The Long Haul</h3>
-            <p class="desc">5lb bag. For the household, the office, or the person who has decided decaf isn't real.</p>
-            <div class="card-specs">
-              <span class="spec">Light roast</span>
-              <span class="spec">Whole bean</span>
-              <span class="spec">~120 cups</span>
-            </div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="long-haul-5lb">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$99</span>
-                <div class="pc-qty" data-id="long-haul-5lb">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="long-haul-5lb" data-name="The Long Haul (5lb)" data-variant="true">Add to bag</button>
+              <button class="add-btn" data-id="costa-rican-12oz" data-name="Costa Rican Buttfire Roast (12oz)">Add to bag</button>
             </div>
           </div>
         </div>
@@ -1029,282 +854,36 @@
       <div class="section-head">
         <div>
           <span class="eyebrow">The gear</span>
-          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Wear the fire</h2>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">The mug</h2>
         </div>
-        <p>Merch for people who've already got the beans and want everyone else to know it.</p>
+        <p>One mug. The Buttfire mark, done right.</p>
       </div>
 
-      <div class="grid">
-
-        <div class="card">
-          <div class="card-art">
-            <img id="mug-preview" src="images/mugs/wrap-pmp-male.png" alt="Ignition Mug preview" class="variant-preview" />
-          </div>
-          <div class="card-body">
-            <h3>Ignition Mug</h3>
-            <p class="desc">14oz ceramic, matte dark brown glaze. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
-            <div class="card-specs"><span class="spec">Ceramic</span><span class="spec">14oz</span></div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="ignition-mug">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-            <div class="variant-row">
-              <span class="variant-label">Title</span>
-              <select class="title-select" data-id="ignition-mug">
-                <option value="pmp" selected>PMP — Project Management Professional</option>
-                <option value="ccm">CCM — Certified Construction Manager</option>
-                <option value="oe">OE — Office Engineer</option>
-                <option value="ce">CE — Construction Engineer</option>
-                <option value="re">RE — Resident Engineer</option>
-                <option value="pe">PE — Professional Engineer</option>
-                <option value="idr">IDR — Inspector's Daily Report</option>
-                <option value="pm">PM — Project Manager</option>
-                <option value="crew">CREW</option>
-                <option value="eo">EO — Equipment Operator</option>
-                <option value="heo">HEO — Heavy Equipment Operator</option>
-                <option value="qi">QI — Quality Inspector</option>
-                <option value="qa">QA — Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$22</span>
-                <div class="pc-qty" data-id="ignition-mug">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="ignition-mug" data-name="Ignition Mug" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-art">
-            <img id="tee-preview" src="images/tees/tee-pmp-male.png" alt="Lit Fuse Tee preview" class="variant-preview" />
-          </div>
-          <div class="card-body">
-            <h3>Lit Fuse Tee</h3>
-            <p class="desc">Heavyweight cotton tee, dark brown. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
-            <div class="card-specs"><span class="spec">100% cotton</span><span class="spec">S–XXL</span></div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="lit-fuse-tee">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-            <div class="variant-row">
-              <span class="variant-label">Title</span>
-              <select class="title-select" data-id="lit-fuse-tee">
-                <option value="pmp" selected>PMP — Project Management Professional</option>
-                <option value="ccm">CCM — Certified Construction Manager</option>
-                <option value="oe">OE — Office Engineer</option>
-                <option value="ce">CE — Construction Engineer</option>
-                <option value="re">RE — Resident Engineer</option>
-                <option value="pe">PE — Professional Engineer</option>
-                <option value="idr">IDR — Inspector's Daily Report</option>
-                <option value="pm">PM — Project Manager</option>
-                <option value="crew">CREW</option>
-                <option value="eo">EO — Equipment Operator</option>
-                <option value="heo">HEO — Heavy Equipment Operator</option>
-                <option value="qi">QI — Quality Inspector</option>
-                <option value="qa">QA — Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$32</span>
-                <div class="pc-qty" data-id="lit-fuse-tee">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="lit-fuse-tee" data-name="Lit Fuse Tee" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-art">
-            <img id="cap-preview" src="images/caps/cap-pmp-male.png" alt="Fast Lane Cap preview" class="variant-preview" />
-          </div>
-          <div class="card-body">
-            <h3>Fast Lane Cap</h3>
-            <p class="desc">Unstructured trucker cap, dark brown front panel, mesh back. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
-            <div class="card-specs"><span class="spec">Adjustable</span><span class="spec">One size</span></div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="fast-lane-cap">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-            <div class="variant-row">
-              <span class="variant-label">Title</span>
-              <select class="title-select" data-id="fast-lane-cap">
-                <option value="pmp" selected>PMP — Project Management Professional</option>
-                <option value="ccm">CCM — Certified Construction Manager</option>
-                <option value="oe">OE — Office Engineer</option>
-                <option value="ce">CE — Construction Engineer</option>
-                <option value="re">RE — Resident Engineer</option>
-                <option value="pe">PE — Professional Engineer</option>
-                <option value="idr">IDR — Inspector's Daily Report</option>
-                <option value="pm">PM — Project Manager</option>
-                <option value="crew">CREW</option>
-                <option value="eo">EO — Equipment Operator</option>
-                <option value="heo">HEO — Heavy Equipment Operator</option>
-                <option value="qi">QI — Quality Inspector</option>
-                <option value="qa">QA — Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$26</span>
-                <div class="pc-qty" data-id="fast-lane-cap">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="fast-lane-cap" data-name="Fast Lane Cap" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-art">
-            <img id="tote-preview" src="images/totes/tote-pmp-male.png" alt="Grab & Go Tote preview" class="variant-preview" />
-          </div>
-          <div class="card-body">
-            <h3>Grab &amp; Go Tote</h3>
-            <p class="desc">Heavy canvas tote. Pick your title and colorway — the Buttfire mark comes standard on every one.</p>
-            <div class="card-specs"><span class="spec">Canvas</span><span class="spec">16"×14"</span></div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="grab-go-tote">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-            <div class="variant-row">
-              <span class="variant-label">Title</span>
-              <select class="title-select" data-id="grab-go-tote">
-                <option value="pmp" selected>PMP — Project Management Professional</option>
-                <option value="ccm">CCM — Certified Construction Manager</option>
-                <option value="oe">OE — Office Engineer</option>
-                <option value="ce">CE — Construction Engineer</option>
-                <option value="re">RE — Resident Engineer</option>
-                <option value="pe">PE — Professional Engineer</option>
-                <option value="idr">IDR — Inspector's Daily Report</option>
-                <option value="pm">PM — Project Manager</option>
-                <option value="crew">CREW</option>
-                <option value="eo">EO — Equipment Operator</option>
-                <option value="heo">HEO — Heavy Equipment Operator</option>
-                <option value="qi">QI — Quality Inspector</option>
-                <option value="qa">QA — Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$20</span>
-                <div class="pc-qty" data-id="grab-go-tote">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="grab-go-tote" data-name="Grab & Go Tote" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-art">
-            <img id="spark-preview" src="images/sparkpacks/spark-pmp-male.png" alt="Spark Pack preview" class="variant-preview" />
-          </div>
-          <div class="card-body">
-            <h3>Spark Pack</h3>
-            <p class="desc">Five vinyl stickers. Pick your title and colorway — the Buttfire mark comes standard on every one. Weatherproof.</p>
-            <div class="card-specs"><span class="spec">5 stickers</span><span class="spec">Vinyl</span></div>
-
-            <div class="variant-row">
-              <span class="variant-label">Colorway</span>
-              <div class="gender-toggle" data-id="spark-pack">
-                <button type="button" class="gender-btn active" data-gender="male">Male</button>
-                <button type="button" class="gender-btn" data-gender="female">Female</button>
-              </div>
-            </div>
-            <div class="variant-row">
-              <span class="variant-label">Title</span>
-              <select class="title-select" data-id="spark-pack">
-                <option value="pmp" selected>PMP — Project Management Professional</option>
-                <option value="ccm">CCM — Certified Construction Manager</option>
-                <option value="oe">OE — Office Engineer</option>
-                <option value="ce">CE — Construction Engineer</option>
-                <option value="re">RE — Resident Engineer</option>
-                <option value="pe">PE — Professional Engineer</option>
-                <option value="idr">IDR — Inspector's Daily Report</option>
-                <option value="pm">PM — Project Manager</option>
-                <option value="crew">CREW</option>
-                <option value="eo">EO — Equipment Operator</option>
-                <option value="heo">HEO — Heavy Equipment Operator</option>
-                <option value="qi">QI — Quality Inspector</option>
-                <option value="qa">QA — Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$10</span>
-                <div class="pc-qty" data-id="spark-pack">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="spark-pack" data-name="Spark Pack" data-variant="true">Add to bag</button>
-            </div>
-          </div>
-        </div>
+      <div class="grid grid-1">
 
         <div class="card">
           <div class="card-art">
             <svg viewBox="0 0 100 100" aria-hidden="true">
               <rect x="0" y="0" width="100" height="100" fill="#4A2E1A"/>
-              <!-- simple wordmark, matching the mark used elsewhere -->
+              <path d="M35 30 L35 78 Q35 82 39 82 L61 82 Q65 82 65 78 L65 30" fill="none" stroke="#F7F1E4" stroke-width="2.4"/>
               <path d="M50 32 C 48 36, 44 38.5, 44 43 C 44 46.5, 47 49.5, 50 49.5 C 54 49.5, 57 46.5, 57 42.5 C 57 40, 55.5 37.5, 53.5 35.5 C 53.5 38, 52 40, 50.5 41 C 51.3 38.5, 50.5 35.5, 50 32Z" fill="#D6401C"/>
-              <text x="50" y="61" text-anchor="middle" font-family="Anton" font-size="10.5" fill="#F7F1E4">BFcafes.com</text>
-              <text x="50" y="69" text-anchor="middle" font-family="Anton" font-size="7" fill="#C9BFAF">BUTTFIRE roast</text>
+              <text x="50" y="93" text-anchor="middle" font-family="Anton" font-size="6" fill="#C9BFAF">BFcafes.com</text>
             </svg>
           </div>
           <div class="card-body">
-            <h3>The Pour-Over Pocket Guide</h3>
-            <p class="desc">A printed pocket guide with 8 international recipes — pour-over, Chemex, French press, AeroPress, cold brew, and more — plus storage tips, tasting notes, and a brew log to track what works.</p>
-            <div class="card-specs"><span class="spec">9 pages</span><span class="spec">8 recipes</span></div>
+            <h3>Buttfire Mug</h3>
+            <p class="desc">14oz ceramic, matte dark brown glaze with the Buttfire mark.</p>
+            <div class="card-specs"><span class="spec">Ceramic</span><span class="spec">14oz</span></div>
             <div class="card-foot">
               <div class="card-foot-top">
-                <span class="price">$6</span>
-                <div class="pc-qty" data-id="pourover-guide">
+                <span class="price">$22</span>
+                <div class="pc-qty" data-id="buttfire-mug">
                   <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
                   <span class="pc-qty-num">1</span>
                   <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
                 </div>
               </div>
-              <button class="add-btn" data-id="pourover-guide" data-name="Pour-Over Pocket Guide">Add to bag</button>
+              <button class="add-btn" data-id="buttfire-mug" data-name="Buttfire Mug">Add to bag</button>
             </div>
           </div>
         </div>
@@ -1324,20 +903,16 @@
       </div>
       <div class="faq-list">
         <details class="faq-item" open>
-          <summary>Why only light roast?</summary>
-          <p>Light roast spends less time in the drum, so more of the bean's original density and caffeine content survives the process. It's brighter, more acidic, and hits harder — which is the entire point of the brand.</p>
+          <summary>Why only dark roast?</summary>
+          <p>Dark roast spends more time in the drum, drawing out a bolder, deeper flavor with less acidity. It's the roast for people who want the cup to hit hard and taste like it.</p>
         </details>
         <details class="faq-item">
           <summary>Do you sell ground coffee?</summary>
-          <p>No, and we won't. Grinding is the one step we think you should do yourself, right before you brew — it's what keeps the coffee tasting like it did the day it was roasted.</p>
+          <p>No, and we won't. Grinding is the one step we think you should do yourself, right before you brew.</p>
         </details>
         <details class="faq-item">
           <summary>Where do the beans come from?</summary>
-          <p>We work with a single origin at a time, rotating the lot every few months as harvests change. The current origin and altitude are printed on every bag.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How fast do you ship?</summary>
-          <p>Every batch is roasted to order and shipped within 48 hours of roasting. No warehouse sitting, no stale bags.</p>
+          <p>Two origins: Ethiopian and Costa Rican. Both dark roast, both whole bean, both 12oz bags.</p>
         </details>
         <details class="faq-item">
           <summary>Do you offer a subscription?</summary>
@@ -1351,7 +926,7 @@
   <section class="cta-band" id="signup">
     <div class="wrap">
       <h2 class="display">Get the next roast first</h2>
-      <p>New origins, new merch drops, and first dibs before we sell out. No spam, just fire.</p>
+      <p>New drops and first dibs before we sell out. No spam, just fire.</p>
       <form class="signup" id="signupForm">
         <input type="email" required placeholder="you@email.com" aria-label="Email address">
         <button type="submit" class="btn btn-primary">Sign up</button>
@@ -1373,13 +948,13 @@
       </a>
       <div class="foot-links">
         <a href="#beans">Beans</a>
-        <a href="#merch">Merch</a>
+        <a href="#merch">Mug</a>
         <a href="#story">Origin</a>
         <a href="#faq">FAQ</a>
         <a href="#signup">Newsletter</a>
       </div>
     </div>
-    <div class="foot-fine">© 2026 BUTTFIRE COFFEE CO. · LIGHT ROAST, WHOLE BEAN, NO SHORTCUTS.</div>
+    <div class="foot-fine">© 2026 BUTTFIRE COFFEE CO. · DARK ROAST, WHOLE BEAN, NO SHORTCUTS.</div>
   </div>
 </footer>
 
@@ -1410,47 +985,9 @@
     });
   });
 
-  // variant selectors (gender toggle + title dropdown) with live preview image
-  document.querySelectorAll('.gender-toggle').forEach(toggle => {
-    const card = toggle.closest('.card');
-    const preview = card ? card.querySelector('.variant-preview') : null;
-    const titleSelect = card ? card.querySelector('.title-select') : null;
-
-    function updatePreview() {
-      if (!preview) return;
-      const gender = toggle.querySelector('.gender-btn.active').dataset.gender;
-      if (titleSelect) {
-        // title + gender products: mug, tote, cap, tee each have their own image folder
-        const title = titleSelect.value;
-        const routes = {
-          'tote-preview': { folder: 'totes', prefix: 'tote' },
-          'cap-preview': { folder: 'caps', prefix: 'cap' },
-          'tee-preview': { folder: 'tees', prefix: 'tee' },
-          'spark-preview': { folder: 'sparkpacks', prefix: 'spark' }
-        };
-        const route = routes[preview.id] || { folder: 'mugs', prefix: 'wrap' };
-        preview.src = `images/${route.folder}/${route.prefix}-${title}-${gender}.png`;
-      } else if (preview.hasAttribute('data-bag-preview')) {
-        // bag-style: weight + gender
-        const weight = preview.dataset.weight;
-        preview.src = `images/bags/bag-${weight}-${gender}.png`;
-      }
-    }
-
-    toggle.querySelectorAll('.gender-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        toggle.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        updatePreview();
-      });
-    });
-
-    if (titleSelect) titleSelect.addEventListener('change', updatePreview);
-  });
-
   // add-to-bag: writes to the shared localStorage cart (cart.js),
-  // using whatever quantity is set on that card's stepper, and — for
-  // products with a gender/title selector — the current selection.
+  // using whatever quantity is set on that card's stepper. No product
+  // has size/color/title options anymore, so there's no variant to build.
   document.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;
@@ -1459,16 +996,7 @@
       const numEl = stepper ? stepper.querySelector('.pc-qty-num') : null;
       const qty = numEl ? (parseInt(numEl.textContent, 10) || 1) : 1;
 
-      let variant = null;
-      if (btn.dataset.variant === 'true' && card) {
-        const genderToggle = card.querySelector('.gender-toggle');
-        const titleSelect = card.querySelector('.title-select');
-        const gender = genderToggle ? genderToggle.querySelector('.gender-btn.active').dataset.gender : null;
-        const title = titleSelect ? titleSelect.value : null;
-        variant = { gender, title };
-      }
-
-      if (id) addToCart(id, qty, variant);
+      if (id) addToCart(id, qty, null);
 
       const original = btn.textContent;
       btn.textContent = qty > 1 ? `Added ${qty} ✓` : 'Added ✓';
