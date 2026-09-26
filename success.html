@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MF6R5303EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MF6R5303EW');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order confirmed — Buttfire Coffee</title>
@@ -43,15 +53,40 @@
       <path d="M12 2C10 6 7 8 7 12.5C7 16.09 9.5 19 12.5 19C15.87 19 18 16.5 18 13.3C18 11 16.7 9.6 15.6 8.4C15.9 10 15 11 14 11.5C14.6 9 13.6 7 12 2Z" fill="#D6401C"/>
     </svg>
     <h1>Order confirmed</h1>
-    <p>Your bag's in the queue. We roast to order, so you'll get a shipping notice within 48 hours.</p>
+    <p>Your order's in the queue. You'll get a shipping notice by email.</p>
     <div class="order-id" id="orderId"></div>
     <a class="btn" href="/index.html">Back to the shop</a>
   </div>
+  <script src="cart.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');
     if (sessionId) {
       document.getElementById('orderId').textContent = 'Confirmation ref: ' + sessionId.slice(-12);
+
+      // Fire a GA4 purchase event before clearing the cart, so Google Ads
+      // (once linked to this GA4 property) can import real conversion data —
+      // value, items, and a transaction_id so repeat page loads / refreshes
+      // don't double-count the same order.
+      try {
+        const items = cartDetailed();
+        if (items.length > 0 && typeof gtag === 'function') {
+          gtag('event', 'purchase', {
+            transaction_id: sessionId,
+            currency: 'USD',
+            value: cartSubtotalCents() / 100,
+            items: items.map((i) => ({
+              item_id: i.id,
+              item_name: i.name,
+              price: i.price / 100,
+              quantity: i.quantity
+            }))
+          });
+        }
+      } catch (e) {
+        // tracking should never block the confirmation page from working
+      }
+
       localStorage.removeItem('buttfire_cart');
     }
   </script>
