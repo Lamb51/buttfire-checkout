@@ -14,43 +14,10 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 // for a small shop hardcoding prices here (in cents) is perfectly sane
 // and safer than trusting a price sent from the browser.
 const CATALOG = {
-  'quick-start-12oz': { name: 'The Quick Start (12oz)', price: 1800 },
-  'full-sprint-2lb': { name: 'The Full Sprint (2lb)', price: 4600 },
-  'long-haul-5lb': { name: 'The Long Haul (5lb)', price: 9900 },
-  'ignition-mug': { name: 'Ignition Mug', price: 2200 },
-  'lit-fuse-tee': { name: 'Lit Fuse Tee', price: 3200 },
-  'fast-lane-cap': { name: 'Fast Lane Cap', price: 2600 },
-  'grab-go-tote': { name: 'Grab & Go Tote', price: 2000 },
-  'spark-pack': { name: 'Spark Pack', price: 1000 },
-  'pourover-guide': { name: 'Pour-Over Pocket Guide', price: 600 }
+  'ethiopian-12oz': { name: 'Ethiopian Buttfire Roast (12oz)', price: 1800 },
+  'costa-rican-12oz': { name: 'Costa Rican Buttfire Roast (12oz)', price: 1800 },
+  'buttfire-mug': { name: 'Buttfire Mug', price: 2200 }
 };
-
-const TITLES = {
-  ccm: 'Certified Construction Manager',
-  oe: 'Office Engineer',
-  ce: 'Construction Engineer',
-  re: 'Resident Engineer',
-  pe: 'Professional Engineer',
-  idr: "Inspector's Daily Report",
-  pmp: 'Project Management Professional',
-  pm: 'Project Manager',
-  crew: 'Crew',
-  eo: 'Equipment Operator',
-  heo: 'Heavy Equipment Operator',
-  qi: 'Quality Inspector',
-  qa: 'Quality Assurance'
-};
-
-// Builds the display name Stripe (and your order records/emails) will
-// show for a line item, folding in the gender/title variant if present
-// — e.g. "Ignition Mug — Certified Construction Manager (Female)".
-function lineItemName(product, variant) {
-  if (!variant) return product.name;
-  const parts = [];
-  if (variant.title && TITLES[variant.title]) parts.push(TITLES[variant.title]);
-  if (variant.gender) parts.push(variant.gender === 'male' ? 'Male' : 'Female');
-  return parts.length ? `${product.name} — ${parts.join(' · ')}` : product.name;
-}
 
 module.exports = async (req, res) => {
   // CORS + method guard
@@ -77,7 +44,7 @@ module.exports = async (req, res) => {
       return {
         price_data: {
           currency: 'usd',
-          product_data: { name: lineItemName(product, item.variant) },
+          product_data: { name: product.name },
           unit_amount: product.price
         },
         quantity: item.quantity || 1
