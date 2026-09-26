@@ -1,13 +1,10 @@
 // cart.js — shared cart logic for Buttfire Coffee
 //
 // Cart is stored in localStorage as an array of:
-//   { id, quantity, variant: { gender, title } | null }
+//   { id, quantity, variant: null }
 //
-// Some products (mugs, and later caps/tees) come in a gender (male/female)
-// and a title (CCM, PMP, etc.). Bags come in gender only. Simple products
-// have variant: null. Two cart lines with the same id but different
-// variants are kept as separate lines, since they're different physical
-// items to produce.
+// The catalog is intentionally simple: two 12oz coffee roasts and one
+// mug, none of which have size/color/title options anymore.
 //
 // Product names/prices are looked up from CATALOG so both pages agree
 // on pricing. The server (api/create-checkout-session.js) has its own
@@ -16,84 +13,10 @@
 
 const CART_KEY = 'buttfire_cart';
 
-// Title options shared by products that offer the abbreviation choice
-// (mugs now; caps and tees once their full art sets exist).
-const TITLES = {
-  ccm: 'Certified Construction Manager',
-  oe: 'Office Engineer',
-  ce: 'Construction Engineer',
-  re: 'Resident Engineer',
-  pe: 'Professional Engineer',
-  idr: "Inspector's Daily Report",
-  pmp: 'Project Management Professional',
-  pm: 'Project Manager',
-  crew: 'Crew',
-  eo: 'Equipment Operator',
-  heo: 'Heavy Equipment Operator',
-  qi: 'Quality Inspector',
-  qa: 'Quality Assurance'
-};
-
 const CATALOG = {
-  'quick-start-12oz': {
-    name: 'The Quick Start (12oz)',
-    price: 1800,
-    hasGender: true,
-    previewPath: (variant) => `images/bags/bag-12oz-${variant.gender}.png`
-  },
-  'full-sprint-2lb': {
-    name: 'The Full Sprint (2lb)',
-    price: 4600,
-    hasGender: true,
-    previewPath: (variant) => `images/bags/bag-2lb-${variant.gender}.png`
-  },
-  'long-haul-5lb': {
-    name: 'The Long Haul (5lb)',
-    price: 9900,
-    hasGender: true,
-    previewPath: (variant) => `images/bags/bag-5lb-${variant.gender}.png`
-  },
-  'ignition-mug': {
-    name: 'Ignition Mug',
-    price: 2200,
-    hasGender: true,
-    hasTitle: true,
-    titles: TITLES,
-    previewPath: (variant) => `images/mugs/wrap-${variant.title}-${variant.gender}.png`
-  },
-  'lit-fuse-tee': {
-    name: 'Lit Fuse Tee',
-    price: 3200,
-    hasGender: true,
-    hasTitle: true,
-    titles: TITLES,
-    previewPath: (variant) => `images/tees/tee-${variant.title}-${variant.gender}.png`
-  },
-  'fast-lane-cap': {
-    name: 'Fast Lane Cap',
-    price: 2600,
-    hasGender: true,
-    hasTitle: true,
-    titles: TITLES,
-    previewPath: (variant) => `images/caps/cap-${variant.title}-${variant.gender}.png`
-  },
-  'grab-go-tote': {
-    name: 'Grab & Go Tote',
-    price: 2000,
-    hasGender: true,
-    hasTitle: true,
-    titles: TITLES,
-    previewPath: (variant) => `images/totes/tote-${variant.title}-${variant.gender}.png`
-  },
-  'spark-pack': {
-    name: 'Spark Pack',
-    price: 1000,
-    hasGender: true,
-    hasTitle: true,
-    titles: TITLES,
-    previewPath: (variant) => `images/sparkpacks/spark-${variant.title}-${variant.gender}.png`
-  },
-  'pourover-guide': { name: 'Pour-Over Pocket Guide', price: 600 }
+  'ethiopian-12oz': { name: 'Ethiopian Buttfire Roast (12oz)', price: 1800 },
+  'costa-rican-12oz': { name: 'Costa Rican Buttfire Roast (12oz)', price: 1800 },
+  'buttfire-mug': { name: 'Buttfire Mug', price: 2200 }
 };
 
 function getCart() {
@@ -153,20 +76,12 @@ function cartCount() {
 
 // Returns cart items merged with catalog details (name, price),
 // dropping any items whose id no longer exists in the catalog.
-// Adds a display-ready `variantLabel` and `previewImage` when applicable.
 function cartDetailed() {
   return getCart()
     .filter((i) => CATALOG[i.id])
     .map((i) => {
       const product = CATALOG[i.id];
-      const entry = { id: i.id, quantity: i.quantity, variant: i.variant || null, ...product };
-      if (i.variant) {
-        const genderLabel = i.variant.gender ? (i.variant.gender === 'male' ? 'Male' : 'Female') : '';
-        const titleLabel = i.variant.title && product.titles ? product.titles[i.variant.title] : '';
-        entry.variantLabel = [titleLabel, genderLabel].filter(Boolean).join(' · ');
-        if (product.previewPath) entry.previewImage = product.previewPath(i.variant);
-      }
-      return entry;
+      return { id: i.id, quantity: i.quantity, variant: i.variant || null, ...product };
     });
 }
 
