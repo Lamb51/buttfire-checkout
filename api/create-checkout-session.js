@@ -14,9 +14,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 // for a small shop hardcoding prices here (in cents) is perfectly sane
 // and safer than trusting a price sent from the browser.
 const CATALOG = {
-  'ethiopian-12oz': { name: 'Ethiopian Buttfire Roast (12oz)', price: 1800 },
-  'costa-rican-12oz': { name: 'Costa Rican Buttfire Roast (12oz)', price: 1800 },
-  'buttfire-mug': { name: 'Buttfire Mug', price: 2200 }
+  'gift-pack': { name: 'Buttfire Whole Bean Coffee Gift Pack', price: 3800 }
 };
 
 module.exports = async (req, res) => {
