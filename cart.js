@@ -3,8 +3,8 @@
 // Cart is stored in localStorage as an array of:
 //   { id, quantity, variant: null }
 //
-// The catalog is intentionally simple: two 12oz coffee roasts and one
-// mug, none of which have size/color/title options anymore.
+// The catalog is intentionally simple: one product, the Gift Pack, with no
+// size/color/title options.
 //
 // Product names/prices are looked up from CATALOG so both pages agree
 // on pricing. The server (api/create-checkout-session.js) has its own
@@ -14,9 +14,7 @@
 const CART_KEY = 'buttfire_cart';
 
 const CATALOG = {
-  'ethiopian-12oz': { name: 'Ethiopian Buttfire Roast (12oz)', price: 1800 },
-  'costa-rican-12oz': { name: 'Costa Rican Buttfire Roast (12oz)', price: 1800 },
-  'buttfire-mug': { name: 'Buttfire Mug', price: 2200 }
+  'gift-pack': { name: 'Buttfire Whole Bean Coffee Gift Pack', price: 3800 }
 };
 
 function getCart() {
@@ -99,6 +97,10 @@ function updateCartBadge() {
     el.textContent = count;
     el.style.display = count > 0 ? 'inline-flex' : 'none';
   });
+}
+
+document.addEventListener('DOMContentLoaded', updateCartBadge);
+
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
