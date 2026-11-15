@@ -12,24 +12,23 @@
   gtag('config', 'G-MF6R5303EW');
 </script>
 
-<!-- your existing website code continues below -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buttfire Coffee — Dark Roast, Lit Fast</title>
-<meta name="description" content="Buttfire Coffee — dark roast whole bean coffee in two origins, Ethiopian and Brazilian, plus the Buttfire mug.">
+<title>Buttfire Coffee — Whole Bean Coffee Gift Pack</title>
+<meta name="description" content="Buttfire Whole Bean Coffee Gift Pack — three 8oz bags of dark roast whole bean coffee: Ethiopian, Brazilian, and Colombian. 1.5 lb for $38.">
 <link rel="canonical" href="https://bfcafes.com/">
 
 <!-- Open Graph / social link previews -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Buttfire Coffee — Dark Roast, Lit Fast">
-<meta property="og:description" content="Dark roast whole bean coffee in two origins, Ethiopian and Brazilian, plus the Buttfire mug.">
+<meta property="og:title" content="Buttfire Coffee — Whole Bean Coffee Gift Pack">
+<meta property="og:description" content="Three 8oz bags of dark roast whole bean coffee: Ethiopian, Brazilian, and Colombian. 1.5 lb for $38.">
 <meta property="og:url" content="https://bfcafes.com/">
 <meta property="og:site_name" content="Buttfire Coffee">
 
 <!-- Twitter/X card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Buttfire Coffee — Dark Roast, Lit Fast">
-<meta name="twitter:description" content="Dark roast whole bean coffee in two origins, Ethiopian and Brazilian, plus the Buttfire mug.">
+<meta name="twitter:title" content="Buttfire Coffee — Whole Bean Coffee Gift Pack">
+<meta name="twitter:description" content="Three 8oz bags of dark roast whole bean coffee: Ethiopian, Brazilian, and Colombian. 1.5 lb for $38.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -608,6 +607,81 @@
     opacity:0.4;
     letter-spacing:0.04em;
   }
+
+  /* ---------- SINGLE-PRODUCT FEATURE ---------- */
+  .fuse-list li{gap:16px;}
+  .fuse-list span:last-child{text-align:right;}
+  .feature{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:980px;
+    margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .feature-art{
+    position:relative;
+    background:#4A2E1A;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:360px;
+  }
+  .feature-art svg{width:100%;height:100%;display:block;}
+  .feature-body{padding:36px;display:flex;flex-direction:column;}
+  .feature-body h3{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:1.7rem;
+    line-height:1.05;
+    margin:0 0 12px;
+    letter-spacing:0.01em;
+  }
+  .feature-body .desc{color:var(--ash); line-height:1.6; margin:0 0 22px; font-size:0.98rem;}
+  .pack-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ash-soft);
+    margin-bottom:8px;
+  }
+  .pack-list{list-style:none; margin:0 0 20px; padding:0; border-top:1px solid var(--line-dark);}
+  .pack-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid var(--line-dark);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.82rem;
+  }
+  .pack-list li span:last-child{color:var(--ash-soft);}
+  .feature-body .card-foot{margin-top:auto;}
+  @media(max-width:800px){
+    .feature{grid-template-columns:1fr;}
+    .feature-art{min-height:0; aspect-ratio:4/3;}
+    .feature-body{padding:26px 22px;}
+  }
+
+  /* origins stack + static banner */
+  .fuse-list .origins{display:flex; flex-direction:column; align-items:center; text-align:center;}
+  .fuse-list .origins .ln{text-align:center;}
+  .strip-track{
+    animation:none;
+    white-space:normal;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px 28px;
+    text-align:center;
+  }
+  @media(max-width:640px){
+    .strip{padding:36px 0;}
+    .strip-track{font-size:1.25rem; gap:8px 22px;}
+    .strip-track .dim{display:none;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -618,7 +692,7 @@
       "@id": "https://bfcafes.com/#organization",
       "name": "Buttfire Coffee",
       "url": "https://bfcafes.com/",
-      "description": "Dark roast whole bean coffee, two origins."
+      "description": "Dark roast whole bean coffee gift pack in three origins."
     },
     {
       "@type": "WebSite",
@@ -628,57 +702,22 @@
     },
     {
       "@type": "Product",
-      "name": "Ethiopian Buttfire Roast (12oz)",
-      "description": "12oz bag of Ethiopian, dark roast whole bean coffee.",
+      "name": "Buttfire Whole Bean Coffee Gift Pack",
+      "description": "Three 8oz bags of dark roast whole bean coffee — one each of Ethiopian, Brazilian, and Colombian. 1.5 lb total.",
       "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
+      "weight": { "@type": "QuantitativeValue", "value": "1.5", "unitCode": "LBR" },
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "18.00",
+        "price": "38.00",
         "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#beans"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Brazilian Buttfire Roast (12oz)",
-      "description": "12oz bag of Brazilian, dark roast whole bean coffee.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "18.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#beans"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Buttfire Mug",
-      "description": "14oz ceramic mug with the Buttfire mark.",
-      "brand": { "@type": "Brand", "name": "Buttfire Coffee" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "22.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://bfcafes.com/#merch"
+        "url": "https://bfcafes.com/#pack"
       }
     }
   ]
 }
 </script>
 </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MF6R5303EW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MF6R5303EW');
-</script>
-
 <body>
 
 <header>
@@ -694,8 +733,7 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#beans">Beans</a>
-      <a href="#merch">Mug</a>
+      <a href="#pack">Gift Pack</a>
       <a href="#story">Origin</a>
       <a href="#faq">FAQ</a>
       <a href="#signup" class="nav-cta">Get on the list</a>
@@ -716,17 +754,17 @@
       <path d="M-50 520 C 300 480, 420 360, 600 320 S 950 180, 1230 90" stroke="#F2A93C" stroke-width="1.5" fill="none" opacity="0.22" stroke-dasharray="6 10"/>
     </svg>
     <div class="wrap hero-inner">
-      <span class="eyebrow">Dark roast · Two origins</span>
+      <span class="eyebrow">Dark roast · Three origins</span>
       <h1 class="display">Buttfire<br>Coffee</h1>
-      <p class="sub">Dark roast, whole bean, two origins. No shortcuts, just a lit fuse in a bag.</p>
+      <p class="sub">One gift pack. Three origins. Dark roast, whole bean, no shortcuts.</p>
       <div class="hero-ctas">
-        <a href="#beans" class="btn btn-primary">Shop the beans</a>
-        <a href="#merch" class="btn btn-ghost">See the mug</a>
+        <a href="#pack" class="btn btn-primary">Get the Gift Pack</a>
+        <a href="#story" class="btn btn-ghost">The origins</a>
       </div>
       <div class="hero-stats">
-        <div><div class="num">100%</div><div class="lbl">Whole Bean</div></div>
-        <div><div class="num">Dark</div><div class="lbl">Roast Level</div></div>
-        <div><div class="num">2</div><div class="lbl">Origins</div></div>
+        <div><div class="num">3</div><div class="lbl">Origins</div></div>
+        <div><div class="num">1.5 lb</div><div class="lbl">Total Coffee</div></div>
+        <div><div class="num">$38</div><div class="lbl">Gift Pack</div></div>
       </div>
     </div>
   </section>
@@ -738,15 +776,16 @@
         <span class="eyebrow" style="color:var(--ember);">The origin</span>
         <h2 class="display" style="font-size:clamp(2rem,4vw,2.8rem);margin:14px 0 22px;">Named for the hurry we used to be in.</h2>
         <p>Buttfire started as a joke between people who were always <strong>one meeting, one flight, one deadline behind</strong>. Fast coffee, for a fast life.</p>
-        <p>We picked dark roast on purpose — more time in the drum means <strong>a bolder, deeper cup</strong>. Every bag is whole bean, ground fresh by you, right before you brew.</p>
+        <p>We roast dark on purpose — more time in the drum means <strong>a bolder, deeper cup</strong>. Every bag is whole bean, ground fresh by you, right before you brew.</p>
       </div>
       <div class="fuse-card">
         <h3>The Fine Print, Fast</h3>
         <ul class="fuse-list">
           <li><span>Roast level</span><span>Dark, always</span></li>
           <li><span>Format</span><span>Whole bean only</span></li>
-          <li><span>Origins</span><span>Ethiopian · Brazilian</span></li>
-          <li><span>Bag size</span><span>12oz only</span></li>
+          <li><span>Origins</span><span class="origins"><span class="ln">Ethiopian · Brazilian</span><span class="ln">Colombian</span></span></li>
+          <li><span>Bags</span><span>3 × 8oz</span></li>
+          <li><span>Total weight</span><span>1.5 lb</span></li>
         </ul>
       </div>
     </div>
@@ -759,121 +798,85 @@
         <span>Dark roast</span><span class="dim">·</span>
         <span>Whole bean</span><span class="dim">·</span>
         <span>No shortcuts</span><span class="dim">·</span>
-        <span>Get up and go</span><span class="dim">·</span>
-        <span>Dark roast</span><span class="dim">·</span>
-        <span>Whole bean</span><span class="dim">·</span>
-        <span>No shortcuts</span><span class="dim">·</span>
-        <span>Get up and go</span><span class="dim">·</span>
+        <span>Get up and go</span>
       </div>
     </div>
   </div>
 
-  <!-- PRODUCTS -->
-  <section class="section products" id="beans">
+  <!-- THE PRODUCT -->
+  <section class="section products" id="pack">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">The lineup</span>
-          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">Grab a bag</h2>
+      <div class="section-head" style="justify-content:center;text-align:center;">
+        <div style="width:100%;">
+          <span class="eyebrow">The only thing we sell</span>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">The Gift Pack</h2>
         </div>
-        <p>Two origins, one roast level. Dark, whole bean, 12oz.</p>
+        <p>Three origins in one box. Give it, or keep it.</p>
       </div>
 
-      <div class="grid grid-2" id="beanGrid">
+      <div class="feature">
+        <div class="feature-art">
+          <span class="card-tag">Gift pack</span>
+          <!-- Placeholder art until the real product photo is added -->
+          <svg viewBox="0 0 120 90" role="img" aria-label="Three bags of coffee: Ethiopian, Brazilian, Colombian">
+            <rect x="0" y="0" width="120" height="90" fill="#4A2E1A"/>
 
-        <div class="card">
-          <div class="card-art">
-            <span class="card-tag">Origin</span>
-            <img class="variant-preview" src="Buttfire%20Ethiopian%20Dark%20Roast%20Coffee%20ad.png" alt="Ethiopian Buttfire Roast — 12oz dark roast whole bean coffee bag">
+            <g>
+              <rect x="10" y="22" width="30" height="48" rx="3" fill="#F7F1E4"/>
+              <rect x="10" y="22" width="30" height="7" rx="3" fill="#D6C9B3"/>
+              <path d="M25 33 C24 36, 21.5 37.5, 21.5 40.5 C21.5 42.8, 23.2 44.5, 25 44.5 C27.2 44.5, 28.8 42.8, 28.8 40.2 C28.8 38.7, 27.9 37.3, 26.8 36.2 C26.8 37.8, 26 39, 25.2 39.6 C25.6 38, 25.2 35.2, 25 33Z" fill="#D6401C"/>
+              <text x="25" y="55" text-anchor="middle" font-family="Anton" font-size="4.6" fill="#4A2E1A">ETHIOPIAN</text>
+              <text x="25" y="62" text-anchor="middle" font-family="Anton" font-size="3.6" fill="#78695C">8 OZ</text>
+            </g>
+            <g>
+              <rect x="45" y="16" width="30" height="48" rx="3" fill="#F7F1E4"/>
+              <rect x="45" y="16" width="30" height="7" rx="3" fill="#D6C9B3"/>
+              <path d="M60 27 C59 30, 56.5 31.5, 56.5 34.5 C56.5 36.8, 58.2 38.5, 60 38.5 C62.2 38.5, 63.8 36.8, 63.8 34.2 C63.8 32.7, 62.9 31.3, 61.8 30.2 C61.8 31.8, 61 33, 60.2 33.6 C60.6 32, 60.2 29.2, 60 27Z" fill="#D6401C"/>
+              <text x="60" y="49" text-anchor="middle" font-family="Anton" font-size="4.6" fill="#4A2E1A">BRAZILIAN</text>
+              <text x="60" y="56" text-anchor="middle" font-family="Anton" font-size="3.6" fill="#78695C">8 OZ</text>
+            </g>
+            <g>
+              <rect x="80" y="22" width="30" height="48" rx="3" fill="#F7F1E4"/>
+              <rect x="80" y="22" width="30" height="7" rx="3" fill="#D6C9B3"/>
+              <path d="M95 33 C94 36, 91.5 37.5, 91.5 40.5 C91.5 42.8, 93.2 44.5, 95 44.5 C97.2 44.5, 98.8 42.8, 98.8 40.2 C98.8 38.7, 97.9 37.3, 96.8 36.2 C96.8 37.8, 96 39, 95.2 39.6 C95.6 38, 95.2 35.2, 95 33Z" fill="#D6401C"/>
+              <text x="95" y="55" text-anchor="middle" font-family="Anton" font-size="4.6" fill="#4A2E1A">COLOMBIAN</text>
+              <text x="95" y="62" text-anchor="middle" font-family="Anton" font-size="3.6" fill="#78695C">8 OZ</text>
+            </g>
+
+            <text x="60" y="82" text-anchor="middle" font-family="Anton" font-size="5" fill="#F7F1E4">BFcafes.com</text>
+          </svg>
+        </div>
+
+        <div class="feature-body">
+          <h3>Buttfire Whole Bean Coffee Gift Pack</h3>
+          <p class="desc">Three 8oz bags of dark roast whole bean coffee, one from each origin. 1.5 lb of coffee in all.</p>
+
+          <div class="pack-label">What's inside</div>
+          <ul class="pack-list">
+            <li><span>Ethiopian</span><span>8oz whole bean</span></li>
+            <li><span>Brazilian</span><span>8oz whole bean</span></li>
+            <li><span>Colombian</span><span>8oz whole bean</span></li>
+          </ul>
+
+          <div class="card-specs">
+            <span class="spec">Dark roast</span>
+            <span class="spec">Whole bean</span>
+            <span class="spec">3 × 8oz</span>
+            <span class="spec">1.5 lb total</span>
           </div>
-          <div class="card-body">
-            <h3>Ethiopian Buttfire Roast</h3>
-            <p class="desc">12oz bag. Bold, fruit-forward, dark roast whole bean.</p>
-            <div class="card-specs">
-              <span class="spec">Dark roast</span>
-              <span class="spec">Whole bean</span>
-              <span class="spec">12oz</span>
-            </div>
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$18</span>
-                <div class="pc-qty" data-id="ethiopian-12oz">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
+
+          <div class="card-foot">
+            <div class="card-foot-top">
+              <span class="price">$38</span>
+              <div class="pc-qty" data-id="gift-pack">
+                <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                <span class="pc-qty-num">1</span>
+                <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
               </div>
-              <button class="add-btn" data-id="ethiopian-12oz" data-name="Ethiopian Buttfire Roast (12oz)">Add to bag</button>
             </div>
+            <button class="add-btn" data-id="gift-pack" data-name="Buttfire Whole Bean Coffee Gift Pack">Add to bag</button>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-art">
-            <span class="card-tag">Origin</span>
-            <img class="variant-preview" src="Brazilian%20Dark%20Roast%20Coffee%20Branding%20ad.png" alt="Brazilian Buttfire Roast — 12oz dark roast whole bean coffee bag">
-          </div>
-          <div class="card-body">
-            <h3>Brazilian Buttfire Roast</h3>
-            <p class="desc">12oz bag. Balanced, sweet, dark roast whole bean.</p>
-            <div class="card-specs">
-              <span class="spec">Dark roast</span>
-              <span class="spec">Whole bean</span>
-              <span class="spec">12oz</span>
-            </div>
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$18</span>
-                <div class="pc-qty" data-id="costa-rican-12oz">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="costa-rican-12oz" data-name="Brazilian Buttfire Roast (12oz)">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MERCH -->
-  <section class="section merch" id="merch">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">The gear</span>
-          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem);">The mug</h2>
-        </div>
-        <p>One mug. The Buttfire mark, done right.</p>
-      </div>
-
-      <div class="grid grid-1">
-
-        <div class="card">
-          <div class="card-art">
-            <img class="variant-preview" src="Golden%20Hour%20Coffee%20Mug%20with%20Steam%20ad.png" alt="Buttfire Mug — 14oz ceramic with the Buttfire mark">
-          </div>
-          <div class="card-body">
-            <h3>Buttfire Mug</h3>
-            <p class="desc">14oz ceramic, matte dark brown glaze with the Buttfire mark.</p>
-            <div class="card-specs"><span class="spec">Ceramic</span><span class="spec">14oz</span></div>
-            <div class="card-foot">
-              <div class="card-foot-top">
-                <span class="price">$22</span>
-                <div class="pc-qty" data-id="buttfire-mug">
-                  <button type="button" class="pc-qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
-                  <span class="pc-qty-num">1</span>
-                  <button type="button" class="pc-qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
-                </div>
-              </div>
-              <button class="add-btn" data-id="buttfire-mug" data-name="Buttfire Mug">Add to bag</button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -889,16 +892,12 @@
       </div>
       <div class="faq-list">
         <details class="faq-item" open>
+          <summary>What's in the Gift Pack?</summary>
+          <p>Three 8oz bags of dark roast whole bean coffee — one Ethiopian, one Brazilian, one Colombian. 1.5 lb of coffee in total.</p>
+        </details>
+        <details class="faq-item">
           <summary>Why only dark roast?</summary>
           <p>Dark roast spends more time in the drum, drawing out a bolder, deeper flavor with less acidity. It's the roast for people who want the cup to hit hard and taste like it.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do you sell ground coffee?</summary>
-          <p>No, and we won't. Grinding is the one step we think you should do yourself, right before you brew.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Where do the beans come from?</summary>
-          <p>Two origins: Ethiopian and Brazilian. Both dark roast, both whole bean, both 12oz bags.</p>
         </details>
         <details class="faq-item">
           <summary>Do you offer a subscription?</summary>
@@ -933,8 +932,7 @@
         Buttfire Coffee
       </a>
       <div class="foot-links">
-        <a href="#beans">Beans</a>
-        <a href="#merch">Mug</a>
+        <a href="#pack">Gift Pack</a>
         <a href="#story">Origin</a>
         <a href="#faq">FAQ</a>
         <a href="#signup">Newsletter</a>
@@ -958,7 +956,7 @@
     navToggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // per-card quantity steppers
+  // quantity stepper
   document.querySelectorAll('.pc-qty').forEach(stepper => {
     const numEl = stepper.querySelector('.pc-qty-num');
     stepper.querySelectorAll('.pc-qty-btn').forEach(btn => {
@@ -971,14 +969,13 @@
     });
   });
 
-  // add-to-bag: writes to the shared localStorage cart (cart.js),
-  // using whatever quantity is set on that card's stepper. No product
-  // has size/color/title options anymore, so there's no variant to build.
+  // add-to-bag: writes to the shared localStorage cart (cart.js).
+  // One product, no size/color/title options, so there's no variant.
   document.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;
-      const card = btn.closest('.card');
-      const stepper = card ? card.querySelector('.pc-qty') : null;
+      const scope = btn.closest('.feature-body') || btn.closest('.card');
+      const stepper = scope ? scope.querySelector('.pc-qty') : null;
       const numEl = stepper ? stepper.querySelector('.pc-qty-num') : null;
       const qty = numEl ? (parseInt(numEl.textContent, 10) || 1) : 1;
 
@@ -992,14 +989,12 @@
         btn.classList.remove('added');
       }, 1600);
 
-      // reset the stepper back to 1 after adding
       if (numEl) numEl.textContent = '1';
     });
   });
 
-  // signup — no backend yet (nothing is actually stored/emailed), but
-  // fires a GA4 sign_up event so this counts as a trackable conversion
-  // once Google Ads is linked to this GA4 property.
+  // signup — no backend yet (nothing is stored/emailed), but fires a GA4
+  // sign_up event so it counts as a trackable conversion.
   document.getElementById('signupForm').addEventListener('submit', (e) => {
     e.preventDefault();
     if (typeof gtag === 'function') gtag('event', 'sign_up', { method: 'newsletter' });
