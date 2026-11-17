@@ -100,7 +100,3 @@ function updateCartBadge() {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
-
-}
-
-document.addEventListener('DOMContentLoaded', updateCartBadge);
